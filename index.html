@@ -6,282 +6,167 @@
 <title>Second Bloom — Art That Carries a Story</title>
 <style>
 :root{
-  --ink:#171717;
-  --muted:#6e6e73;
-  --paper:#f5f5f7;
-  --ivory:#ffffff;
-  --surface:#fbfbfd;
-  --line:#e5e5e7;
-  --soft:#f2f2f4;
-  --accent:#1d1d1f;
-  --gold:#9a7b42;
-  --shadow:0 20px 60px rgba(0,0,0,.08);
+  --ink:#111113;--muted:#6f7075;--paper:#f7f7f8;--ivory:#fff;
+  --surface:#fbfbfc;--line:#e3e3e7;--soft:#f0f0f2;
+  --gold:#a1834d;--dark:#161618;
+  --shadow:0 28px 90px rgba(0,0,0,.10);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
+  margin:0;background:var(--paper);color:var(--ink);
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased;
+  -webkit-font-smoothing:antialiased
 }
-a{color:inherit;text-decoration:none}
-button,input{font:inherit}
+a{color:inherit;text-decoration:none}button,input{font:inherit}
 
 header{
-  position:sticky;top:0;z-index:30;
-  height:72px;
-  display:flex;align-items:center;
-  padding:0 5.5%;
-  gap:30px;
-  background:rgba(255,255,255,.82);
-  backdrop-filter:saturate(180%) blur(20px);
-  -webkit-backdrop-filter:saturate(180%) blur(20px);
-  border-bottom:1px solid rgba(0,0,0,.06);
+  position:sticky;top:0;z-index:30;height:72px;padding:0 5.2%;
+  display:flex;align-items:center;gap:30px;
+  background:rgba(255,255,255,.78);
+  backdrop-filter:saturate(180%) blur(22px);
+  -webkit-backdrop-filter:saturate(180%) blur(22px);
+  border-bottom:1px solid rgba(0,0,0,.055)
 }
 .brand{display:flex;align-items:center;gap:11px;min-width:235px}
 .mark{
-  width:34px;height:34px;border:1px solid #b7a276;border-radius:50%;
-  display:grid;place-items:center;color:#8e703a;
-  font:18px Georgia,serif;
+  width:35px;height:35px;border:1px solid #b99a63;border-radius:50%;
+  display:grid;place-items:center;color:#9b7b43;font:18px Georgia,serif;
+  background:linear-gradient(145deg,#fff,#faf8f2)
 }
 .brandname{font:600 18px -apple-system,BlinkMacSystemFont,"SF Pro Display",Arial,sans-serif;letter-spacing:2.8px}
-.sub{font-size:8px;letter-spacing:2px;color:#8c8c91;text-transform:uppercase;margin-top:3px}
+.sub{font-size:8px;letter-spacing:2.1px;color:#929298;text-transform:uppercase;margin-top:3px}
 .search{
-  margin-left:auto;width:300px;height:38px;
-  border:1px solid #dedee2;background:rgba(255,255,255,.75);
-  padding:0 15px;border-radius:20px;outline:none;
-  color:var(--ink);font-size:12px;
+  margin-left:auto;width:310px;height:39px;border:1px solid #dedee3;
+  background:rgba(255,255,255,.8);padding:0 16px;border-radius:22px;
+  outline:none;color:var(--ink);font-size:12px
 }
-.search:focus{border-color:#b9b9bd;box-shadow:0 0 0 3px rgba(0,0,0,.04)}
-.nav{display:flex;gap:25px;font-size:12px;color:#424245}
-.nav a{transition:color .2s ease}
-.nav a:hover{color:#000}
+.search:focus{border-color:#b8b8bd;box-shadow:0 0 0 4px rgba(0,0,0,.035)}
+.nav{display:flex;gap:25px;font-size:12px;color:#444448}
+.nav a{transition:.2s}.nav a:hover{color:#000}
 
 .hero{
-  min-height:720px;
-  padding:95px 7% 90px;
-  display:grid;
-  grid-template-columns:.86fr 1.14fr;
-  gap:75px;
-  align-items:center;
+  min-height:760px;padding:78px 6.5% 90px;
+  display:grid;grid-template-columns:.82fr 1.18fr;gap:70px;align-items:center;
   background:
-    radial-gradient(circle at 78% 18%,rgba(255,255,255,.95) 0,rgba(255,255,255,.5) 26%,transparent 54%),
-    linear-gradient(180deg,#fbfbfd 0%,#f5f5f7 100%);
+    radial-gradient(circle at 76% 28%,rgba(255,255,255,.98) 0,rgba(255,255,255,.58) 24%,transparent 52%),
+    radial-gradient(circle at 15% 80%,rgba(230,230,235,.55),transparent 38%),
+    linear-gradient(180deg,#fafafd 0%,#f5f5f7 100%)
 }
+.hero-copy{max-width:590px}
 .eyebrow{
-  font-size:10px;text-transform:uppercase;letter-spacing:2.8px;
-  color:#8a8a8f;font-weight:600;
+  font-size:10px;text-transform:uppercase;letter-spacing:3px;
+  color:#8a8b90;font-weight:600
 }
 h1{
-  font:500 clamp(54px,6.2vw,92px)/.96 Georgia,"Times New Roman",serif;
-  letter-spacing:-3px;margin:18px 0 27px;
+  font:500 clamp(58px,6.3vw,96px)/.93 Georgia,"Times New Roman",serif;
+  letter-spacing:-4px;margin:18px 0 27px
 }
-.hero p{
-  font:20px/1.65 Georgia,"Times New Roman",serif;
-  color:#6e6e73;max-width:560px;
-}
+.hero p{font:19px/1.72 Georgia,"Times New Roman",serif;color:#6d6e74;max-width:550px}
 .cta{
-  display:inline-flex;margin-top:21px;
-  background:#1d1d1f;color:#fff;
-  padding:14px 22px;border-radius:24px;
-  letter-spacing:.1px;font-size:12px;font-weight:500;
-  box-shadow:0 8px 24px rgba(0,0,0,.12);
-  transition:transform .2s ease,box-shadow .2s ease;
+  display:inline-flex;margin-top:22px;background:#111113;color:#fff;
+  padding:15px 23px;border-radius:26px;font-size:12px;font-weight:600;
+  box-shadow:0 10px 28px rgba(0,0,0,.13);transition:.22s
 }
-.cta:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.16)}
-.hero-note{margin-top:19px;font-size:10px;color:#8a8a8f;letter-spacing:.3px}
+.cta:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(0,0,0,.17)}
+.hero-note{margin-top:18px;font-size:10px;color:#8b8c91;letter-spacing:.3px}
+.creator-chip{
+  display:inline-flex;align-items:center;gap:8px;margin-top:22px;
+  padding:8px 12px;border:1px solid #dfdfe3;background:rgba(255,255,255,.72);
+  border-radius:20px;font-size:10px;color:#55565b;
+  box-shadow:0 8px 25px rgba(0,0,0,.04)
+}
+.creator-dot{width:7px;height:7px;border-radius:50%;background:#a1834d}
 
 .frame{
-  position:relative;background:#fff;padding:13px;
-  border:1px solid #e2e2e4;border-radius:18px;
-  box-shadow:0 30px 80px rgba(0,0,0,.11);
+  position:relative;background:#fff;padding:13px;border:1px solid #e1e1e5;
+  border-radius:22px;box-shadow:0 35px 100px rgba(0,0,0,.12)
 }
 .frame:before{display:none}
-.mat{
-  background:#fafafa;padding:12px;
-  border:1px solid #ededee;border-radius:10px;
-}
-.frame img{display:block;width:100%;height:100%;object-fit:cover;border-radius:5px}
-.hero-frame{height:610px;transform:rotate(.35deg);padding:14px}
+.mat{background:#fafafa;padding:13px;border:1px solid #ededf0;border-radius:12px}
+.frame img{display:block;width:100%;height:100%;object-fit:cover;border-radius:7px}
+.hero-frame{height:635px;transform:rotate(.25deg);padding:15px}
 .hero-frame .mat{height:100%;padding:15px}
-.hero-frame img{object-fit:cover;object-position:center 32%}
+.hero-frame img{object-fit:contain;background:#fff;object-position:center}
 .caption-plaque{
-  position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);
-  background:rgba(255,255,255,.94);
-  border:1px solid #e2e2e4;border-radius:20px;
-  padding:8px 16px;white-space:nowrap;
-  font:11px -apple-system,BlinkMacSystemFont,Arial,sans-serif;
-  color:#555;box-shadow:0 8px 24px rgba(0,0,0,.08)
+  position:absolute;left:50%;bottom:-19px;transform:translateX(-50%);
+  background:rgba(255,255,255,.96);border:1px solid #dedee2;border-radius:22px;
+  padding:9px 17px;white-space:nowrap;font:11px -apple-system,BlinkMacSystemFont,Arial,sans-serif;
+  color:#505157;box-shadow:0 12px 28px rgba(0,0,0,.09)
 }
 
-.intro{
-  text-align:center;max-width:900px;margin:auto;
-  padding:110px 25px 85px;background:#fff;
-}
-.intro h2{font:500 46px Georgia,serif;margin:14px 0 18px;letter-spacing:-1px}
-.intro p{font:18px/1.8 Georgia,serif;color:var(--muted);max-width:730px;margin:auto}
+.intro{text-align:center;max-width:900px;margin:auto;padding:115px 25px 90px;background:#fff}
+.intro h2{font:500 47px Georgia,serif;margin:14px 0 18px;letter-spacing:-1px}
+.intro p{font:18px/1.85 Georgia,serif;color:var(--muted);max-width:730px;margin:auto}
 
 section{padding:35px 6.5% 100px}
 .section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:30px}
 .section-head h2{font:500 40px Georgia,serif;margin:10px 0 0;letter-spacing:-.8px}
 .section-head p{font-size:11px;color:var(--muted);letter-spacing:.4px}
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
-.chip{
-  border:1px solid #dcdce0;background:#fff;
-  padding:9px 15px;font-size:11px;border-radius:20px;
-  cursor:pointer;color:#555;
-  transition:.2s ease;
-}
-.chip.active,.chip:hover{background:#1d1d1f;color:white;border-color:#1d1d1f}
+.chip{border:1px solid #dcdce1;background:#fff;padding:9px 15px;font-size:11px;border-radius:20px;cursor:pointer;color:#555;transition:.2s}
+.chip.active,.chip:hover{background:#111113;color:#fff;border-color:#111113}
 
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:38px 28px}
 .card{cursor:pointer}
-.art-frame{
-  background:#fff;padding:9px;border:1px solid #e2e2e4;
-  border-radius:14px;box-shadow:0 10px 35px rgba(0,0,0,.055);
-  transition:transform .3s ease,box-shadow .3s ease;
-}
-.art-frame .mat{padding:8px;overflow:hidden;position:relative;border-radius:8px}
-.art-frame img{
-  display:block;width:100%;height:330px;object-fit:cover;
-  transform:scale(1);transform-origin:center;
-  transition:transform .5s cubic-bezier(.2,.7,.2,1);
-  will-change:transform;border-radius:4px;
-}
-.card:hover .art-frame{transform:translateY(-5px);box-shadow:0 22px 50px rgba(0,0,0,.10)}
+.art-frame{background:#fff;padding:9px;border:1px solid #e1e1e5;border-radius:15px;box-shadow:0 12px 36px rgba(0,0,0,.055);transition:.3s}
+.art-frame .mat{padding:8px;overflow:hidden;position:relative;border-radius:9px}
+.art-frame img{display:block;width:100%;height:330px;object-fit:cover;transform:scale(1);transition:transform .5s cubic-bezier(.2,.7,.2,1);border-radius:5px}
+.card:hover .art-frame{transform:translateY(-5px);box-shadow:0 24px 55px rgba(0,0,0,.11)}
 .card:hover .art-frame img{transform:scale(1.045)}
-.art-frame .mat:after{
-  content:"View detail";position:absolute;right:12px;bottom:12px;
-  background:rgba(255,255,255,.94);color:#333;
-  border:1px solid #dedee1;padding:7px 10px;border-radius:14px;
-  font:10px/1 -apple-system,BlinkMacSystemFont,Arial,sans-serif;
-  opacity:0;transform:translateY(5px);transition:.25s ease;pointer-events:none
-}
+.art-frame .mat:after{content:"View detail";position:absolute;right:12px;bottom:12px;background:rgba(255,255,255,.95);color:#333;border:1px solid #dedee2;padding:7px 10px;border-radius:15px;font:10px/1 -apple-system,BlinkMacSystemFont,Arial,sans-serif;opacity:0;transform:translateY(5px);transition:.25s;pointer-events:none}
 .card:hover .art-frame .mat:after{opacity:1;transform:translateY(0)}
-.cardinfo{padding:16px 2px 24px}
-.title{font:19px Georgia,serif;letter-spacing:-.1px}
-.artist{font-size:11px;color:var(--muted);margin-top:6px}
-.type{font-size:9px;color:#8d7444;letter-spacing:1.2px;text-transform:uppercase;margin-top:9px}
-.price{font-size:13px;font-weight:600;margin-top:9px}
-.one-of-one{font-size:10px;color:#929297;margin-top:6px}
+.cardinfo{padding:16px 2px 24px}.title{font:19px Georgia,serif}.artist{font-size:11px;color:var(--muted);margin-top:6px}
+.type{font-size:9px;color:#917441;letter-spacing:1.2px;text-transform:uppercase;margin-top:9px}
+.price{font-size:13px;font-weight:600;margin-top:9px}.one-of-one{font-size:10px;color:#929298;margin-top:6px}
+.creator-story{margin:8px 0 10px;color:#67686d;font:12px/1.55 Georgia,serif}
 
-.story{
-  margin:25px 0;background:#1d1d1f;color:#f5f5f7;
-  display:grid;grid-template-columns:1fr 1fr;
-  border-radius:20px;overflow:hidden;
-  box-shadow:var(--shadow);
-}
-.story-copy{padding:80px 70px}
-.story h2{font:500 45px Georgia,serif;margin:14px 0 20px;letter-spacing:-1px}
-.story p{font:17px/1.8 Georgia,serif;color:#b8b8bd}
-.story-image{min-height:480px;padding:45px;background:#f0f0f2;display:grid;place-items:center}
-.story-image .frame{max-width:360px;transform:rotate(-1.5deg)}
-
+.story{margin:25px 0;background:#171719;color:#f5f5f7;display:grid;grid-template-columns:1fr 1fr;border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+.story-copy{padding:80px 70px}.story h2{font:500 45px Georgia,serif;margin:14px 0 20px;letter-spacing:-1px}.story p{font:17px/1.8 Georgia,serif;color:#b8b8bd}
+.story-image{min-height:480px;padding:45px;background:#f0f0f2;display:grid;place-items:center}.story-image .frame{max-width:360px;transform:rotate(-1.5deg)}
 .collection{background:#fff;padding-top:85px;padding-bottom:90px}
 .era-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.era{
-  background:#f7f7f8;border:1px solid #e4e4e7;
-  border-radius:18px;padding:30px 24px;min-height:150px;
-  transition:.25s ease;
-}
+.era{background:#f7f7f8;border:1px solid #e4e4e7;border-radius:18px;padding:30px 24px;min-height:150px;transition:.25s}
 .era:hover{transform:translateY(-3px);background:#fff;box-shadow:0 15px 35px rgba(0,0,0,.06)}
-.era b{font:27px Georgia,serif;display:block;margin-bottom:8px}
-.era span{font-size:11px;color:var(--muted);line-height:1.5}
+.era b{font:27px Georgia,serif;display:block;margin-bottom:8px}.era span{font-size:11px;color:var(--muted);line-height:1.5}
+footer{background:#171719;color:#f5f5f7;padding:55px 6.5%;display:flex;justify-content:space-between;gap:30px}
+.footerbrand{font:600 20px -apple-system,BlinkMacSystemFont,Arial,sans-serif;letter-spacing:2px}.footerdesc{font-size:11px;color:#929297;margin-top:8px}.footerlinks{display:flex;gap:20px;font-size:11px;color:#b8b8bd}
 
-footer{
-  background:#1d1d1f;color:#f5f5f7;
-  padding:55px 6.5%;display:flex;justify-content:space-between;gap:30px
-}
-.footerbrand{font:600 20px -apple-system,BlinkMacSystemFont,Arial,sans-serif;letter-spacing:2px}
-.footerdesc{font-size:11px;color:#929297;margin-top:8px}
-.footerlinks{display:flex;gap:20px;font-size:11px;color:#b8b8bd}
-
-.modal{
-  position:fixed;inset:0;background:rgba(0,0,0,.58);
-  z-index:60;display:none;align-items:center;justify-content:center;padding:22px;
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)
-}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.58);z-index:60;display:none;align-items:center;justify-content:center;padding:22px;backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
 .modal.open{display:flex}
-.product{
-  width:min(1100px,100%);max-height:92vh;overflow:auto;
-  background:#fff;display:grid;grid-template-columns:1fr .9fr;
-  border-radius:20px;box-shadow:0 35px 90px rgba(0,0,0,.28);overflow:hidden
-}
-.product-visual{padding:45px;background:#f2f2f4;display:grid;place-items:center}
-.product-visual .frame{width:100%;max-width:470px}
+.product{width:min(1100px,100%);max-height:92vh;overflow:auto;background:#fff;display:grid;grid-template-columns:1fr .9fr;border-radius:22px;box-shadow:0 40px 100px rgba(0,0,0,.3);overflow:hidden}
+.product-visual{padding:45px;background:#f1f1f3;display:grid;place-items:center}.product-visual .frame{width:100%;max-width:470px}
 .product-visual img{height:600px;object-fit:contain;background:#fafafa}
-.product-copy{padding:52px}
-.close{float:right;font-size:28px;line-height:1;cursor:pointer;color:#6e6e73}
-.product-copy h2{font:500 45px/1.05 Georgia,serif;margin:15px 0 10px}
-.product-copy .artistline{font-size:12px;color:var(--muted)}
-.product-price{font-size:22px;font-weight:600;margin:20px 0}
-.product-copy p{font:16px/1.75 Georgia,serif;color:#6d6d72}
-.meta{
-  display:grid;grid-template-columns:1fr 1fr;
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding:20px 0;margin:25px 0;gap:20px
-}
-.meta span{font-size:9px;letter-spacing:1.7px;color:#929297}
-.meta b{font-size:12px}
-.btn{
-  border:0;background:#1d1d1f;color:white;padding:15px 24px;
-  border-radius:24px;cursor:pointer;font-size:12px;letter-spacing:.2px
-}
-.btn:hover{background:#000}
-
-.cart{
-  position:fixed;inset:0;background:rgba(0,0,0,.5);
-  z-index:70;display:none;justify-content:flex-end;
-  backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)
-}
-.cart.open{display:flex}
-.cartbox{
-  height:100%;width:min(470px,100%);background:#fff;
-  padding:35px;overflow:auto;box-shadow:-20px 0 60px rgba(0,0,0,.12)
-}
-.cartbox h2{font:500 34px Georgia,serif}
-.cartitem{display:flex;gap:15px;border-bottom:1px solid var(--line);padding:18px 0}
-.cartthumb{
-  width:75px;height:90px;object-fit:cover;
-  border:1px solid #ddd;border-radius:7px
-}
-.cartbox input{
-  width:100%;padding:13px;border:1px solid #dedee2;
-  background:#fafafa;border-radius:8px;margin:6px 0;outline:none
-}
+.product-copy{padding:52px}.close{float:right;font-size:28px;line-height:1;cursor:pointer;color:#6e6e73}
+.product-copy h2{font:500 45px/1.05 Georgia,serif;margin:15px 0 10px}.product-copy .artistline{font-size:12px;color:var(--muted)}
+.product-price{font-size:22px;font-weight:600;margin:20px 0}.product-copy p{font:16px/1.75 Georgia,serif;color:#6d6d72}
+.meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;margin:25px 0;gap:20px}
+.meta span{font-size:9px;letter-spacing:1.7px;color:#929297}.meta b{font-size:12px}
+.btn{border:0;background:#111113;color:#fff;padding:15px 24px;border-radius:25px;cursor:pointer;font-size:12px;font-weight:600}.btn:hover{background:#000}
+.checkout-step{display:none}.checkout-step.active{display:block}
+.step-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#929297;margin-bottom:8px}
+.checkout-card{max-width:620px;margin:40px auto;background:#fff;border:1px solid #e1e1e5;border-radius:22px;padding:38px;box-shadow:0 25px 70px rgba(0,0,0,.08)}
+.checkout-card h2{font:500 36px Georgia,serif;margin:8px 0 22px}.checkout-card input{width:100%;padding:14px 15px;border:1px solid #dedee2;background:#fafafa;border-radius:10px;margin:6px 0;outline:none}
+.checkout-card input:focus{background:#fff;border-color:#b8b8bd;box-shadow:0 0 0 3px rgba(0,0,0,.035)}
+.payment-note{padding:15px;background:#f5f5f7;border-radius:12px;font-size:11px;color:#68696e;line-height:1.6;margin:18px 0}
+.back-link{display:inline-block;margin-top:14px;font-size:11px;color:#6e6e73;cursor:pointer}
+.cart{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:70;display:none;justify-content:flex-end;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.cart.open{display:flex}.cartbox{height:100%;width:min(470px,100%);background:#fff;padding:35px;overflow:auto;box-shadow:-20px 0 60px rgba(0,0,0,.12)}
+.cartbox h2{font:500 34px Georgia,serif}.cartitem{display:flex;gap:15px;border-bottom:1px solid var(--line);padding:18px 0}
+.cartthumb{width:75px;height:90px;object-fit:cover;border:1px solid #ddd;border-radius:7px}.cartbox input{width:100%;padding:13px;border:1px solid #dedee2;background:#fafafa;border-radius:8px;margin:6px 0;outline:none}
 .empty{color:var(--muted);line-height:1.6}
 
 @media(max-width:1000px){
-  .grid{grid-template-columns:repeat(3,1fr)}
-  .hero{grid-template-columns:1fr}
-  .hero-frame{height:520px}
-  .story{grid-template-columns:1fr}
-  .era-row{grid-template-columns:repeat(2,1fr)}
-  .search{display:none}
+  .grid{grid-template-columns:repeat(3,1fr)}.hero{grid-template-columns:1fr}.hero-frame{height:520px}.story{grid-template-columns:1fr}.era-row{grid-template-columns:repeat(2,1fr)}.search{display:none}
 }
 @media(max-width:680px){
-  header{height:68px;padding:0 18px}
-  .brand{min-width:auto}
-  .brandname{font-size:16px}
-  .nav{gap:12px;font-size:11px}
-  .hero{padding:55px 20px}
-  .hero-frame{height:430px}
-  .grid{grid-template-columns:1fr 1fr;gap:20px}
-  .art-frame img{height:250px}
-  .section-head{display:block}
-  .section-head p{margin-top:10px}
-  .story-copy{padding:48px 30px}
-  .story-image{padding:28px}
-  .product{grid-template-columns:1fr}
-  .product-visual{padding:25px}
-  .product-visual img{height:420px}
-  .product-copy{padding:30px}
-  .era-row{grid-template-columns:1fr}
-  .footerlinks{display:none}
+  header{height:68px;padding:0 18px}.brand{min-width:auto}.brandname{font-size:16px}.nav{gap:12px;font-size:11px}
+  .hero{padding:55px 20px}.hero-frame{height:430px}.grid{grid-template-columns:1fr 1fr;gap:20px}.art-frame img{height:250px}
+  .section-head{display:block}.section-head p{margin-top:10px}.story-copy{padding:48px 30px}.story-image{padding:28px}
+  .product{grid-template-columns:1fr}.product-visual{padding:25px}.product-visual img{height:420px}.product-copy{padding:30px}
+  .era-row{grid-template-columns:1fr}.footerlinks{display:none}.checkout-card{margin:20px 0;padding:25px}
 }
-.storyline{font:13px/1.55 Georgia,serif;color:#6e6e73;margin-top:11px;max-width:330px}.artist{font-size:11px;color:#555;margin-top:7px;font-weight:500}</style>
+</style>
 </head>
 <body>
 <header>
@@ -297,7 +182,7 @@ footer{
     <h1>Art that<br>carries a<br><i>story.</i></h1>
     <p>Original drawings, paintings and illustrated pieces created to hold a feeling, a memory or a moment — made to be lived with, not simply looked at.</p>
     <a class="cta" href="#collection">Explore the collection</a>
-    <div class="hero-note">Created by Amudha Premnath · 64 years · One of a kind</div>
+    <div class="hero-note">Original work · Artist-made · One of a kind</div><div class="creator-chip"><span class="creator-dot"></span><b>Amudha Premnath</b> · 64 years · Creator of this collection</div>
   </div>
   <div class="frame hero-frame"><div class="mat"><img src="second-bloom-assets/krishna-flute.jpeg" alt="Krishna — The Flute Player by Amudha Premnath"></div><div class="caption-plaque">Krishna — Graphite & Pencil · Original Artwork</div></div>
 </section>
@@ -316,8 +201,7 @@ footer{
 
 <section id="story">
  <div class="story">
-  <div class="story-copy"><div class="eyebrow" style="color:#d7b36b">Why Second Bloom</div><h2>Not just something on a wall.</h2><p>These works are little pieces of expression — drawn by hand, painted with intention, or created around a moment that mattered.</p><p>We present every artwork as something you can keep, gift, frame and pass forward. The next chapter belongs to you.</p></div>
-  <div class="story-image"><div class="frame"><div class="mat"><img src="second-bloom-assets/temple-kedarnath.jpeg" alt="Hand drawn temple artwork"></div></div></div>
+  <div class="story-copy"><div class="eyebrow" style="color:#bda36d">The creator behind the collection</div><h2>64 years. A lifetime of stories. Still creating.</h2><p>Amudha Premnath brings patience, memory and emotion to every line she draws. These are not simply artworks; they are moments she chose to put on paper.</p><p>Second Bloom gives that talent a new audience — and gives each piece a chance to become part of someone else's story.</p></div><div class="story-image"><div class="frame"><div class="mat"><img src="second-bloom-assets/temple-kedarnath.jpeg" alt="Hand drawn temple artwork"></div></div></div>
  </div>
 </section>
 
@@ -352,15 +236,51 @@ const products=[
  {title:'Bloom in Your Own Colours',artist:'Amudha Premnath · 64 years',type:'Celebration Art',medium:'Graphite & colour',price:'₹3,900',img:'second-bloom-assets/womens-day.jpeg',tags:['drawing','gift','story'],story:'A celebration of becoming — a reminder that there is always room to grow, create and bloom in your own colours.'}
 ];
 let selected=null,cartItems=[],activeFilter='all';
-function renderProducts(){const q=document.getElementById('search').value.toLowerCase();const grid=document.getElementById('grid');grid.innerHTML=products.filter(p=>(activeFilter==='all'||p.tags.includes(activeFilter))&&(`${p.title} ${p.type} ${p.medium} ${p.artist} ${p.story}`.toLowerCase().includes(q))).map((p,i)=>`<div class="card" onclick="showProduct(${i})"><div class="art-frame"><div class="mat"><img src="${p.img}" alt="${p.title} by ${p.artist}"></div></div><div class="cardinfo"><div class="title">${p.title}</div><div class="artist">${p.artist}</div><div class="type">${p.type}</div><div class="storyline">${p.story}</div><div class="price">${p.price}</div><div class="one-of-one">Original · One of one</div></div></div>`).join('')||'<div style="grid-column:1/-1;padding:40px 0;color:#6e6e73">No artworks found.</div>'}
+function renderProducts(){const q=document.getElementById('search').value.toLowerCase();const grid=document.getElementById('grid');grid.innerHTML=products.filter(p=>(activeFilter==='all'||p.tags.includes(activeFilter))&&(`${p.title} ${p.type} ${p.medium} ${p.artist} ${p.story}`.toLowerCase().includes(q))).map((p,i)=>`<div class="card" onclick="showProduct(${i})"><div class="art-frame"><div class="mat"><img src="${p.img}" alt="${p.title} by ${p.artist}"></div></div><div class="cardinfo"><div class="title">${p.title}</div><div class="artist">${p.artist} · Age 64</div><div class="creator-story">${p.story}</div><div class="type">${p.type}</div><div class="storyline">${p.story}</div><div class="price">${p.price}</div><div class="one-of-one">Original · One of one</div></div></div>`).join('')||'<div style="grid-column:1/-1;padding:40px 0;color:#6e6e73">No artworks found.</div>'}
 function filterCards(){renderProducts()}function setFilter(f,el){activeFilter=f;document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));el.classList.add('active');renderProducts()}
 function showProduct(i){selected=products[i];document.getElementById('pImg').src=selected.img;document.getElementById('pImg').alt=selected.title;document.getElementById('pTitle').textContent=selected.title;document.getElementById('pArtist').textContent=selected.artist;document.getElementById('pType').textContent=selected.type;document.getElementById('pPrice').textContent=selected.price;document.getElementById('pMedium').textContent=selected.medium;document.getElementById('pDesc').textContent=selected.story;document.getElementById('modal').classList.add('open')}
 function closeProduct(){document.getElementById('modal').classList.remove('open')}
 function addToCart(){cartItems=[selected];document.getElementById('count').textContent=cartItems.length;closeProduct();openCart()}
 function openCart(){document.getElementById('cart').classList.add('open');renderCart()}
 function closeCart(){document.getElementById('cart').classList.remove('open')}
-function renderCart(){const body=document.getElementById('cartBody');if(!cartItems.length){body.innerHTML='<p class="empty">Your collection is empty. Choose an artwork that means something to you.</p>';return}const x=cartItems[0];body.innerHTML=`<div class="cartitem"><img class="cartthumb" src="${x.img}"><div><b>${x.title}</b><div style="color:#776d61;margin:6px 0;font-size:11px">${x.type} · ${x.medium}</div><b>${x.price}</b></div></div><h3 style="font:normal 23px Georgia,serif;margin-top:28px">Give this piece a new home.</h3><input placeholder="Full name"><input placeholder="Email"><input placeholder="Delivery address"><button class="btn" style="width:100%;margin-top:10px" onclick="confirmOrder()">Place Order</button>`}
-function confirmOrder(){document.getElementById('cartBody').innerHTML='<div style="text-align:center;padding:45px 5px"><div style="font-size:44px;color:#a77b2d">✦</div><h2 style="font:normal 31px Georgia,serif">Its next chapter begins.</h2><p style="color:#776d61;line-height:1.7">Thank you for giving this artwork a new home.</p><button class="btn" onclick="closeCart()">Continue discovering</button></div>';cartItems=[];document.getElementById('count').textContent=0}
+const PAYMENT_URL='PASTE_PAYMENT_LINK_HERE';
+
+function renderCart(){
+  const body=document.getElementById('cartBody');
+  if(!cartItems.length){
+    body.innerHTML='<p class="empty">Your collection is empty. Choose an artwork that means something to you.</p>';
+    return;
+  }
+  const x=cartItems[0];
+  body.innerHTML=`<div class="cartitem"><img class="cartthumb" src="${x.img}" alt="${x.title}"><div><b>${x.title}</b><div style="color:#776d61;margin:6px 0;font-size:11px">${x.type} · ${x.medium}</div><div style="font-size:11px;color:#777">Created by Amudha Premnath · 64</div><b style="display:block;margin-top:7px">${x.price}</b></div></div><p style="font:14px/1.6 Georgia,serif;color:#6e6e73">${x.story}</p><button class="btn" style="width:100%;margin-top:10px" onclick="openCheckout()">Continue to checkout</button>`;
+}
+
+function openCheckout(){
+  const body=document.getElementById('cartBody');
+  const x=cartItems[0];
+  body.innerHTML=`<div class="checkout-card" style="margin:0;padding:0;border:0;box-shadow:none"><div class="step-label">Step 1 of 2</div><h2>Almost yours.</h2><p style="font:15px/1.7 Georgia,serif;color:#6e6e73">A few details before we take you to secure payment.</p><input id="checkoutName" placeholder="Full name"><input id="checkoutEmail" type="email" placeholder="Email address"><input id="checkoutPhone" placeholder="Phone number"><input id="checkoutAddress" placeholder="Delivery address"><button class="btn" style="width:100%;margin-top:12px" onclick="continueToPayment()">Continue to payment</button><a class="back-link" onclick="renderCart()">← Back to your collection</a></div>`;
+}
+
+function continueToPayment(){
+  const name=document.getElementById('checkoutName').value.trim();
+  const email=document.getElementById('checkoutEmail').value.trim();
+  const phone=document.getElementById('checkoutPhone').value.trim();
+  const address=document.getElementById('checkoutAddress').value.trim();
+  if(!name||!email||!phone||!address){alert('Please complete your delivery details.');return;}
+  const body=document.getElementById('cartBody');
+  const x=cartItems[0];
+  body.innerHTML=`<div class="checkout-card" style="margin:0;padding:0;border:0;box-shadow:none"><div class="step-label">Step 2 of 2</div><h2>Secure payment</h2><p style="font:15px/1.7 Georgia,serif;color:#6e6e73">You are purchasing <b>${x.title}</b> by Amudha Premnath.</p><div class="payment-note">Your order details are ready. The secure payment page will open in a new window. Your payment provider will handle card, UPI and other supported payment methods.</div><button class="btn" style="width:100%" onclick="goToPayment()">Proceed to secure payment · ${x.price}</button><a class="back-link" onclick="openCheckout()">← Back to details</a></div>`;
+}
+
+function goToPayment(){
+  if(PAYMENT_URL==='PASTE_PAYMENT_LINK_HERE'){
+    alert('Payment link is not connected yet. Send me your payment-link URL and I will connect it here.');
+    return;
+  }
+  window.location.href=PAYMENT_URL;
+}
+
+function confirmOrder(){goToPayment();}
 renderProducts();
 </script>
 </body>
