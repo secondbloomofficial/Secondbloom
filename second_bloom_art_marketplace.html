@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Second Bloom — Art That Carries a Story</title>
+<style>
+:root{--ink:#29231d;--muted:#776d61;--paper:#f6f1e8;--ivory:#fffdf8;--cream:#eee4d4;--gold:#a77b2d;--gold2:#d3b36a;--line:#ded3c2;--brown:#4a3525;--green:#66725d;--shadow:0 22px 60px rgba(53,39,23,.14)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Arial,sans-serif}a{color:inherit;text-decoration:none}button{font:inherit}
+header{position:sticky;top:0;z-index:30;background:rgba(255,253,248,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);height:88px;display:flex;align-items:center;padding:0 5.5%;gap:28px}.brand{display:flex;align-items:center;gap:13px;min-width:210px}.mark{width:42px;height:42px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font:25px Georgia,serif}.brandname{font:22px Georgia,serif;letter-spacing:2.8px}.sub{font-size:9px;letter-spacing:2.4px;color:var(--gold);text-transform:uppercase;margin-top:3px}.search{margin-left:auto;width:290px;border:1px solid var(--line);background:#fff;padding:12px 16px;border-radius:24px;outline:none}.nav{display:flex;gap:22px;font-size:12px;letter-spacing:.5px}.nav a:hover{color:var(--gold)}
+.hero{min-height:690px;padding:82px 7%;display:grid;grid-template-columns:.86fr 1.14fr;gap:75px;align-items:center;background:radial-gradient(circle at 85% 18%,#e7dcc9 0,#f6f1e8 34%,#f6f1e8 100%)}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--gold)}h1{font:normal clamp(52px,6vw,88px)/.96 Georgia,serif;letter-spacing:-2.5px;margin:18px 0 24px}.hero p{font:20px/1.7 Georgia,serif;color:#655b50;max-width:570px}.cta{display:inline-flex;margin-top:20px;background:var(--brown);color:#fff;padding:15px 24px;letter-spacing:.7px;font-size:12px}.hero-note{margin-top:22px;font-size:11px;color:#8d8173;letter-spacing:.4px}
+.frame{position:relative;background:#2f241a;padding:18px;box-shadow:var(--shadow),inset 0 0 0 2px #8d6b3c,inset 0 0 0 5px #241b14}.frame:before{content:"";position:absolute;inset:7px;border:1px solid #d1aa62;pointer-events:none}.mat{background:#f8f4eb;padding:24px;box-shadow:inset 0 0 0 1px #d7c8b0}.frame img{display:block;width:100%;height:100%;object-fit:cover}.hero-frame{height:610px;transform:rotate(.5deg)}.hero-frame .mat{height:100%}.hero-frame img{object-fit:cover;object-position:center 32%}.caption-plaque{position:absolute;left:50%;bottom:-20px;transform:translateX(-50%);background:#f4e8cf;border:1px solid #c9aa73;padding:8px 17px;white-space:nowrap;font:12px Georgia,serif;box-shadow:0 8px 20px #3a281512}
+.intro{text-align:center;max-width:900px;margin:auto;padding:100px 25px 70px}.intro h2{font:normal 44px Georgia,serif;margin:14px 0 18px}.intro p{font:18px/1.85 Georgia,serif;color:var(--muted)}
+section{padding:30px 6.5% 85px}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px}.section-head h2{font:normal 39px Georgia,serif;margin:10px 0 0}.section-head p{font-size:11px;color:var(--muted);letter-spacing:.8px}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:30px}.chip{border:1px solid #cfc2af;background:#fffaf2;padding:9px 15px;font-size:11px;cursor:pointer}.chip.active,.chip:hover{background:var(--brown);color:white;border-color:var(--brown)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:34px}.card{cursor:pointer}.art-frame{background:#30251b;padding:10px;box-shadow:0 15px 35px rgba(48,35,20,.14);transition:transform .25s ease,box-shadow .25s ease}.art-frame .mat{padding:12px;overflow:hidden;position:relative}.art-frame img{display:block;width:100%;height:330px;object-fit:cover;transform:scale(1);transform-origin:center;transition:transform .45s cubic-bezier(.2,.7,.2,1);will-change:transform}.card:hover .art-frame{transform:translateY(-5px);box-shadow:0 22px 45px rgba(48,35,20,.2)}.card:hover .art-frame img{transform:scale(1.07)}.art-frame .mat:after{content:"View detail";position:absolute;right:12px;bottom:12px;background:rgba(255,250,240,.92);color:#4a3827;border:1px solid #d2bf9f;padding:7px 10px;font:10px/1 Georgia,serif;letter-spacing:.6px;opacity:0;transform:translateY(5px);transition:.25s ease;pointer-events:none}.card:hover .art-frame .mat:after{opacity:1;transform:translateY(0)}.cardinfo{padding:16px 2px 24px}.title{font:20px Georgia,serif}.artist{font-size:11px;color:var(--muted);margin-top:6px}.type{font-size:10px;color:var(--gold);letter-spacing:1.2px;text-transform:uppercase;margin-top:9px}.price{font-size:14px;font-weight:700;margin-top:9px}.one-of-one{font-size:10px;color:#8b7b69;margin-top:6px}
+.story{margin:25px 0;background:#2f271f;color:#f7f0e4;display:grid;grid-template-columns:1fr 1fr;box-shadow:var(--shadow)}.story-copy{padding:75px 70px}.story h2{font:normal 44px Georgia,serif;margin:14px 0 20px}.story p{font:17px/1.8 Georgia,serif;color:#d7ccbc}.story-image{min-height:480px;padding:45px;background:#241d17;display:grid;place-items:center}.story-image .frame{max-width:360px;transform:rotate(-2deg)}
+.collection{background:#ece1d0;padding-top:80px;padding-bottom:80px}.era-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.era{background:#fffaf2;border:1px solid #d9cbb6;padding:30px 24px;min-height:150px}.era b{font:27px Georgia,serif;display:block;margin-bottom:8px}.era span{font-size:11px;color:var(--muted);line-height:1.5}
+footer{background:#2a211a;color:#eee5d8;padding:55px 6.5%;display:flex;justify-content:space-between;gap:30px}.footerbrand{font:22px Georgia,serif;letter-spacing:2px}.footerdesc{font-size:11px;color:#bfb1a0;margin-top:8px}.footerlinks{display:flex;gap:20px;font-size:11px;color:#c9bcab}
+.modal{position:fixed;inset:0;background:rgba(24,18,13,.72);z-index:60;display:none;align-items:center;justify-content:center;padding:22px}.modal.open{display:flex}.product{width:min(1100px,100%);max-height:92vh;overflow:auto;background:#fbf8f1;display:grid;grid-template-columns:1fr .9fr;box-shadow:0 35px 90px #0007}.product-visual{padding:45px;background:#e9ddca;display:grid;place-items:center}.product-visual .frame{width:100%;max-width:470px}.product-visual img{height:600px;object-fit:contain;background:#f8f4eb}.product-copy{padding:52px}.close{float:right;font-size:28px;line-height:1;cursor:pointer;color:#6f6458}.product-copy h2{font:normal 45px/1.05 Georgia,serif;margin:15px 0 10px}.product-copy .artistline{font-size:12px;color:var(--muted)}.product-price{font-size:22px;font-weight:700;margin:20px 0}.product-copy p{font:16px/1.75 Georgia,serif;color:#6d6358}.meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;margin:25px 0;gap:20px}.meta span{font-size:9px;letter-spacing:1.7px;color:#9a8b78}.meta b{font-size:12px}.btn{border:0;background:var(--brown);color:white;padding:15px 24px;cursor:pointer;font-size:12px;letter-spacing:.5px}.btn:hover{background:#2f2117}
+.cart{position:fixed;inset:0;background:#0008;z-index:70;display:none;justify-content:flex-end}.cart.open{display:flex}.cartbox{height:100%;width:min(470px,100%);background:#fffaf3;padding:35px;overflow:auto}.cartbox h2{font:normal 34px Georgia,serif}.cartitem{display:flex;gap:15px;border-bottom:1px solid var(--line);padding:18px 0}.cartthumb{width:75px;height:90px;object-fit:cover;border:8px solid #33261a;outline:1px solid #b58c52;outline-offset:-4px}.cartbox input{width:100%;padding:13px;border:1px solid var(--line);background:#fff;margin:6px 0}.empty{color:var(--muted);line-height:1.6}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}.hero{grid-template-columns:1fr}.hero-frame{height:520px}.story{grid-template-columns:1fr}.era-row{grid-template-columns:repeat(2,1fr)}.search{display:none}}
+@media(max-width:680px){header{height:74px;padding:0 18px}.brand{min-width:auto}.brandname{font-size:18px}.nav{gap:12px;font-size:11px}.hero{padding:55px 20px}.hero-frame{height:430px}.grid{grid-template-columns:1fr 1fr;gap:20px}.art-frame img{height:250px}.section-head{display:block}.section-head p{margin-top:10px}.story-copy{padding:48px 30px}.story-image{padding:28px}.product{grid-template-columns:1fr}.product-visual{padding:25px}.product-visual img{height:420px}.product-copy{padding:30px}.era-row{grid-template-columns:1fr}.footerlinks{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="#top"><div class="mark">✦</div><div><div class="brandname">SECOND BLOOM</div><div class="sub">Art · Stories · Expression</div></div></a>
+  <input class="search" id="search" placeholder="Search artworks, themes or stories" oninput="filterCards()">
+  <nav class="nav"><a href="#collection">Collection</a><a href="#story">Our story</a><a href="#cart" onclick="openCart();return false">Cart (<span id="count">0</span>)</a></nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div>
+    <div class="eyebrow">A new home for meaningful art</div>
+    <h1>Art that<br>carries a<br><i>story.</i></h1>
+    <p>Original drawings, paintings and illustrated pieces created to hold a feeling, a memory or a moment — made to be lived with, not simply looked at.</p>
+    <a class="cta" href="#collection">Explore the collection</a>
+    <div class="hero-note">Framed with care · Artist-made · One of a kind</div>
+  </div>
+  <div class="frame hero-frame"><div class="mat"><img src="second-bloom-assets/koi-watercolor.jpeg" alt="Koi watercolor artwork"></div><div class="caption-plaque">Koi — Watercolour · Original Artwork</div></div>
+</section>
+
+<div class="intro">
+  <div class="eyebrow">The Second Bloom idea</div>
+  <h2>Some art deserves a second life.</h2>
+  <p>We bring together expressive artworks that feel personal — a temple remembered, a quiet mountain, a father celebrated, a flower drawn from the heart. Each piece can become part of someone else's story.</p>
+</div>
+
+<section id="collection">
+  <div class="section-head"><div><div class="eyebrow">Curated collection</div><h2>Works worth keeping</h2></div><p>Original pieces · Carefully presented · Ready for a new home</p></div>
+  <div class="filters"><button class="chip active" onclick="setFilter('all',this)">All art</button><button class="chip" onclick="setFilter('drawing',this)">Ink & pencil</button><button class="chip" onclick="setFilter('colour',this)">Colour & watercolour</button><button class="chip" onclick="setFilter('spiritual',this)">Spiritual</button><button class="chip" onclick="setFilter('story',this)">Art with words</button><button class="chip" onclick="setFilter('gift',this)">Meaningful gifts</button></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="story">
+ <div class="story">
+  <div class="story-copy"><div class="eyebrow" style="color:#d7b36b">Why Second Bloom</div><h2>Not just something on a wall.</h2><p>These works are little pieces of expression — drawn by hand, painted with intention, or created around a moment that mattered.</p><p>We present every artwork as something you can keep, gift, frame and pass forward. The next chapter belongs to you.</p></div>
+  <div class="story-image"><div class="frame"><div class="mat"><img src="second-bloom-assets/temple-kedarnath.jpeg" alt="Hand drawn temple artwork"></div></div></div>
+ </div>
+</section>
+
+<section class="collection">
+ <div class="section-head"><div><div class="eyebrow">Choose by feeling</div><h2>Find something that speaks to you</h2></div></div>
+ <div class="era-row"><div class="era"><b>Peace</b><span>Quiet landscapes, spiritual sketches and art made for slower moments.</span></div><div class="era"><b>Devotion</b><span>Krishna, Hanuman, Buddha and sacred places drawn with care.</span></div><div class="era"><b>Love</b><span>Father's Day, Women's Day and pieces that turn emotion into a keepsake.</span></div><div class="era"><b>Expression</b><span>Colour, nature, architecture and words brought together in one frame.</span></div></div>
+</section>
+</main>
+
+<footer><div><div class="footerbrand">SECOND BLOOM</div><div class="footerdesc">Blooming through art, one story at a time.</div></div><div class="footerlinks"><a href="#collection">Collection</a><a href="#story">Our Story</a><a href="#cart" onclick="openCart();return false">Cart</a></div></footer>
+
+<div class="modal" id="modal"><div class="product"><div class="product-visual"><div class="frame"><div class="mat"><img id="pImg" src="" alt=""></div></div></div><div class="product-copy"><span class="close" onclick="closeProduct()">×</span><div class="eyebrow" id="pType"></div><h2 id="pTitle"></h2><div class="artistline" id="pArtist"></div><div class="product-price" id="pPrice"></div><p id="pDesc"></p><div class="meta"><div><span>MEDIUM</span><br><b id="pMedium"></b></div><div><span>FORMAT</span><br><b>Original artwork</b></div><div><span>DETAIL</span><br><b>Artist-made</b></div><div><span>EDITION</span><br><b>One of one</b></div></div><p><b>A piece with a story</b><br>This artwork is presented as a keepsake — something to frame, live with and eventually pass forward.</p><button class="btn" onclick="addToCart()">Add to Cart</button></div></div></div>
+
+<div class="cart" id="cart"><div class="cartbox"><span class="close" onclick="closeCart()">×</span><h2>Your collection</h2><div id="cartBody"></div></div></div>
+
+<script>
+const products=[
+ {title:'Krishna — The Flute Player',artist:'Second Bloom Artist Collection',type:'Spiritual',medium:'Graphite & pencil',price:'₹3,500',img:'second-bloom-assets/krishna-flute.jpeg',tags:['drawing','spiritual']},
+ {title:'The Temple in the Silent Hills',artist:'Second Bloom Artist Collection',type:'Heritage Drawing',medium:'Ink on paper',price:'₹3,800',img:'second-bloom-assets/temple-kedarnath.jpeg',tags:['drawing','spiritual','story']},
+ {title:'A Monument of Memory',artist:'Second Bloom Artist Collection',type:'Architecture',medium:'Ink sketch',price:'₹3,500',img:'second-bloom-assets/taj-sketch.jpeg',tags:['drawing','story']},
+ {title:'Beauty in Every Stroke',artist:'Second Bloom Artist Collection',type:'Nature & Expression',medium:'Mixed media',price:'₹4,200',img:'second-bloom-assets/peacock.jpeg',tags:['colour','story']},
+ {title:'Where the Road Becomes Quiet',artist:'Second Bloom Artist Collection',type:'Mindful Landscape',medium:'Ink on paper',price:'₹3,900',img:'second-bloom-assets/mountain-road.jpeg',tags:['drawing','story']},
+ {title:'Life Has Texture',artist:'Second Bloom Artist Collection',type:'Words & Illustration',medium:'Ink illustration',price:'₹3,200',img:'second-bloom-assets/life-texture.jpeg',tags:['drawing','story']},
+ {title:'I Am Becoming',artist:'Second Bloom Artist Collection',type:'Botanical Expression',medium:'Watercolour',price:'₹4,500',img:'second-bloom-assets/blooming-flowers.jpeg',tags:['colour','story']},
+ {title:'Quiet Architecture',artist:'Second Bloom Artist Collection',type:'Travel Sketch',medium:'Ink on paper',price:'₹3,600',img:'second-bloom-assets/japanese-temple.jpeg',tags:['drawing']},
+ {title:'For Dad, With Love',artist:'Second Bloom Artist Collection',type:'Meaningful Gift',medium:'Ink & pencil',price:'₹3,400',img:'second-bloom-assets/dad-hero.jpeg',tags:['drawing','gift','story']},
+ {title:'Two Koi, One Flow',artist:'Second Bloom Artist Collection',type:'Watercolour',medium:'Watercolour on paper',price:'₹4,800',img:'second-bloom-assets/koi-watercolor.jpeg',tags:['colour']},
+ {title:'Stillness',artist:'Second Bloom Artist Collection',type:'Spiritual Sketch',medium:'Graphite & ink',price:'₹3,300',img:'second-bloom-assets/buddha-sketch.jpeg',tags:['drawing','spiritual']},
+ {title:'Soul Cafe',artist:'Second Bloom Artist Collection',type:'Illustrated Story',medium:'Ink on textured paper',price:'₹3,700',img:'second-bloom-assets/soul-cafe.jpeg',tags:['drawing','story']},
+ {title:'Where the World Grows Quiet',artist:'Second Bloom Artist Collection',type:'Mountain Story',medium:'Ink illustration',price:'₹3,800',img:'second-bloom-assets/mountain-soul.jpeg',tags:['drawing','story']},
+ {title:'Hanuman Jayanti — Strength & Devotion',artist:'Second Bloom Artist Collection',type:'Spiritual Art',medium:'Illustrated ink work',price:'₹4,000',img:'second-bloom-assets/hanuman-jayanti.jpeg',tags:['spiritual','story']},
+ {title:'Bloom in Your Own Colours',artist:'Second Bloom Artist Collection',type:'Celebration Art',medium:'Graphite & colour',price:'₹3,900',img:'second-bloom-assets/womens-day.jpeg',tags:['drawing','gift','story']}
+];
+let selected=null,cartItems=[],activeFilter='all';
+function renderProducts(){const q=document.getElementById('search').value.toLowerCase();const grid=document.getElementById('grid');grid.innerHTML=products.filter(p=>(activeFilter==='all'||p.tags.includes(activeFilter))&&(`${p.title} ${p.type} ${p.medium}`.toLowerCase().includes(q))).map((p,i)=>`<div class="card" onclick="showProduct(${i})"><div class="art-frame"><div class="mat"><img src="${p.img}" alt="${p.title}"></div></div><div class="cardinfo"><div class="title">${p.title}</div><div class="artist">${p.artist}</div><div class="type">${p.type}</div><div class="price">${p.price}</div><div class="one-of-one">Original · One of one</div></div></div>`).join('')||'<div style="grid-column:1/-1;padding:40px 0;color:#776d61">No artworks found.</div>'}
+function filterCards(){renderProducts()}function setFilter(f,el){activeFilter=f;document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));el.classList.add('active');renderProducts()}
+function showProduct(i){selected=products[i];document.getElementById('pImg').src=selected.img;document.getElementById('pImg').alt=selected.title;document.getElementById('pTitle').textContent=selected.title;document.getElementById('pArtist').textContent=selected.artist;document.getElementById('pType').textContent=selected.type;document.getElementById('pPrice').textContent=selected.price;document.getElementById('pMedium').textContent=selected.medium;document.getElementById('pDesc').textContent='A carefully made artwork created to hold a feeling, memory or moment. The visible lines, colour and texture are part of what makes the original piece personal.';document.getElementById('modal').classList.add('open')}
+function closeProduct(){document.getElementById('modal').classList.remove('open')}
+function addToCart(){cartItems=[selected];document.getElementById('count').textContent=cartItems.length;closeProduct();openCart()}
+function openCart(){document.getElementById('cart').classList.add('open');renderCart()}
+function closeCart(){document.getElementById('cart').classList.remove('open')}
+function renderCart(){const body=document.getElementById('cartBody');if(!cartItems.length){body.innerHTML='<p class="empty">Your collection is empty. Choose an artwork that means something to you.</p>';return}const x=cartItems[0];body.innerHTML=`<div class="cartitem"><img class="cartthumb" src="${x.img}"><div><b>${x.title}</b><div style="color:#776d61;margin:6px 0;font-size:11px">${x.type} · ${x.medium}</div><b>${x.price}</b></div></div><h3 style="font:normal 23px Georgia,serif;margin-top:28px">Give this piece a new home.</h3><input placeholder="Full name"><input placeholder="Email"><input placeholder="Delivery address"><button class="btn" style="width:100%;margin-top:10px" onclick="confirmOrder()">Place Order</button>`}
+function confirmOrder(){document.getElementById('cartBody').innerHTML='<div style="text-align:center;padding:45px 5px"><div style="font-size:44px;color:#a77b2d">✦</div><h2 style="font:normal 31px Georgia,serif">Its next chapter begins.</h2><p style="color:#776d61;line-height:1.7">Thank you for giving this artwork a new home.</p><button class="btn" onclick="closeCart()">Continue discovering</button></div>';cartItems=[];document.getElementById('count').textContent=0}
+renderProducts();
+</script>
+</body>
+</html>
