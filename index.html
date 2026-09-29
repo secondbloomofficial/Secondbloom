@@ -179,7 +179,7 @@ header{border-bottom:1px solid transparent;border-image:linear-gradient(90deg,tr
   <nav>
     <a class="hide" href="#collection">Collection</a>
     <a class="hide" href="#story">Her story</a>
-    <button class="cartlink" onclick="openCart()">Your collection (<span id="count">0</span>)</button>
+    <button class="cartlink" onclick="openCart()">Your interests (<span id="count">0</span>)</button>
   </nav>
 </header>
 
@@ -244,7 +244,7 @@ header{border-bottom:1px solid transparent;border-image:linear-gradient(90deg,tr
 
 <footer>
   <div><b>Second Bloom</b>Blooming through art, one story at a time.</div>
-  <div><a href="#collection">Collection</a><a href="#story">Her story</a><a onclick="openCart()" tabindex="0" role="button">Your collection</a></div>
+  <div><a href="#collection">Collection</a><a href="#story">Her story</a><a onclick="openCart()" tabindex="0" role="button">Your interests</a></div>
 </footer>
 
 <div class="modal" id="modal" onclick="if(event.target===this)closeProduct()">
@@ -259,13 +259,13 @@ header{border-bottom:1px solid transparent;border-image:linear-gradient(90deg,tr
       <p id="pDesc"></p>
       <div class="meta"><div><span>Medium</span><b id="pMedium"></b></div><div><span>Edition</span><b>Original, one of one</b></div></div>
       <p class="pnote">Created by Amudha Premnath at 64. This piece is a small part of her story and her creative journey, and it can become part of yours.</p>
-      <button class="btn wide" id="addBtn" onclick="addToCart()">Bring this home</button>
+      <button class="btn wide" id="addBtn" onclick="addToCart()">I am interested</button>
     </div>
   </div>
 </div>
 
 <div class="cart" id="cart" onclick="if(event.target===this)closeCart()">
-  <div class="cartbox" id="cartBox" role="dialog" aria-modal="true" aria-label="Your collection">
+  <div class="cartbox" id="cartBox" role="dialog" aria-modal="true" aria-label="Your interests">
     <button class="x" onclick="closeCart()" aria-label="Close">×</button>
     <div id="cartBody"></div>
   </div>
@@ -277,8 +277,6 @@ header{border-bottom:1px solid transparent;border-image:linear-gradient(90deg,tr
 <div class="pick"><label>Buttons <input type="color" id="tp-plum" value="#5b2a4e" oninput="pickTheme()"></label><label>Dark <input type="color" id="tp-deep" value="#2a1626" oninput="pickTheme()"></label><label>Accent <input type="color" id="tp-gold" value="#e0a526" oninput="pickTheme()"></label><label>Page <input type="color" id="tp-chalk" value="#f6f2ee" oninput="pickTheme()"></label></div>
 <p style="margin:14px 0 0"><button class="link" onclick="copyTheme()">Copy colours</button><button class="link" onclick="resetTheme()">Reset</button></p>
 <p class="mut sm" id="copied" style="margin:8px 0 0"></p></div>
-
-<form name="order" method="POST" data-netlify="true" hidden><input name="name"><input name="email"><input name="phone"><input name="address"><input name="note"><input name="items"><input name="total"></form>
 
 <script>
 const A='Amudha Premnath · 64 years';
@@ -301,17 +299,17 @@ const products=[
  a('Bloom in Your Own Colours','Celebration Art','Graphite & colour',3900,'womens-day',['drawing','colour'],'A celebration of becoming — a reminder that there is always room to grow, create and bloom in your own colours.')
 ];
 const SOLD=[];                                  // titles that have sold, e.g. ['Two Koi, One Flow']
-const PAYMENT_URL='PASTE_PAYMENT_LINK_HERE';    // your payment link (Razorpay, Stripe, PayPal...)
+const SCRIPT_URL='';                            // paste your Google Apps Script web app URL here (see setup steps)
+const OWNER_EMAIL='secondbloomofficial2.0@gmail.com';
 const WHATSAPP='';                              // optional, e.g. '971501234567' for an order fallback
 const SHOW_THEME_PICKER=true;                   // set false before you share the site publicly
 const F={Peace:[1,4,7,10,12],Devotion:[0,1,10,13],Love:[8,9,14],Expression:[3,5,6,11]};
-let selected=null,cartItems=[],activeFilter='all',details={name:'',email:'',phone:'',address:'',note:''};
+let selected=null,cartItems=[],activeFilter='all',details={name:'',email:'',phone:'',city:'',note:''};
 const $=id=>document.getElementById(id);
 const inr=n=>'₹'+n.toLocaleString('en-IN');
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const isSold=p=>SOLD.includes(p.title);
 const total=()=>cartItems.reduce((s,x)=>s+x.n,0);
-const payReady=()=>PAYMENT_URL!=='PASTE_PAYMENT_LINK_HERE';
 const lock=()=>{document.body.style.overflow=document.querySelector('.modal.open,.cart.open')?'hidden':''};
 function saveCart(){$('count').textContent=cartItems.length;try{localStorage.setItem('sb-cart',JSON.stringify(cartItems.map(x=>x.title)))}catch(e){}}
 try{cartItems=JSON.parse(localStorage.getItem('sb-cart')||'[]').map(t=>products.find(p=>p.title===t)).filter(p=>p&&!isSold(p))}catch(e){cartItems=[]}
@@ -329,7 +327,7 @@ function showProduct(i){
   $('pType').textContent=selected.type;$('pPrice').textContent=selected.price;
   $('pMedium').textContent=selected.medium;$('pDesc').textContent=selected.story;
   const b=$('addBtn');b.disabled=isSold(selected);
-  b.textContent=isSold(selected)?'Found a home':cartItems.includes(selected)?'View your collection':'Bring this home';
+  b.textContent=isSold(selected)?'Found a home':cartItems.includes(selected)?'View your interests':'I am interested';
   $('modal').classList.add('open');lock();$('modal').querySelector('.x').focus();
 }
 function closeProduct(){$('modal').classList.remove('open');lock()}
@@ -339,15 +337,15 @@ function closeCart(){$('cart').classList.remove('open');lock()}
 function toCollection(){closeCart();location.hash='collection'}
 function removeItem(i){cartItems.splice(i,1);saveCart();renderCart()}
 function view(h){const b=$('cartBody');b.innerHTML=h;const t=b.querySelector('h2');t.tabIndex=-1;t.focus({preventScroll:true});$('cartBox').scrollTop=0}
-const steps=n=>'<div class="steps">'+['Collection','Details','Review'].map((s,i)=>`<span class="${i<=n?'on':''}">${s}</span>`).join('')+'</div>';
+const steps=n=>'<div class="steps">'+['Interests','Details','Review'].map((s,i)=>`<span class="${i<=n?'on':''}">${s}</span>`).join('')+'</div>';
 
 function renderCart(){
-  if(!cartItems.length){view('<h2>Your collection</h2><p class="mut">It is empty for now. Choose an artwork that means something to you.</p><button class="btn wide" onclick="toCollection()">See the collection</button>');return}
-  view(steps(0)+'<h2>Your collection</h2>'+cartItems.map((x,i)=>`<div class="item"><img src="${x.img}" alt=""><div><b>${x.title}</b><small>${x.type} · ${x.medium}</small><br><small>By ${x.artist}</small><br><b style="font-size:18px;margin-top:4px">${x.price}</b><button class="link" onclick="removeItem(${i})">Remove</button></div></div>`).join('')+`<div class="total"><span>Total</span><span>${inr(total())}</span></div><p class="mut sm">Each piece is original and one of one.</p><button class="btn wide" onclick="openCheckout()">Continue to checkout</button><button class="link" onclick="toCollection()">Keep browsing</button>`);
+  if(!cartItems.length){view('<h2>Your interests</h2><p class="mut">Nothing here yet. Choose &ldquo;I am interested&rdquo; on an artwork that speaks to you.</p><button class="btn wide" onclick="toCollection()">See the collection</button>');return}
+  view(steps(0)+'<h2>Your interests</h2><p class="mut">Tell us which pieces caught your heart. We will share further details with you personally.</p>'+cartItems.map((x,i)=>`<div class="item"><img src="${x.img}" alt=""><div><b>${x.title}</b><small>${x.type} · ${x.medium}</small><br><small>By ${x.artist}</small><br><b style="font-size:18px;margin-top:4px">${x.price}</b><button class="link" onclick="removeItem(${i})">Remove</button></div></div>`).join('')+`<button class="btn wide" onclick="openCheckout()">Continue to interest form</button><button class="link" onclick="toCollection()">Keep browsing</button>`);
 }
 const field=(id,label,type,val,ac)=>`<label for="c-${id}">${label}</label><input id="c-${id}" type="${type}" autocomplete="${ac}" value="${esc(val)}"><div class="fe" id="e-${id}"></div>`;
 function openCheckout(){
-  view(steps(1)+`<h2>Your details</h2><p class="mut">Where should we send your artwork?</p><form onsubmit="return toReview(event)" novalidate>${field('name','Full name','text',details.name,'name')}${field('email','Email address','email',details.email,'email')}${field('phone','Phone number','tel',details.phone,'tel')}<label for="c-address">Delivery address</label><textarea id="c-address" rows="3" autocomplete="street-address">${esc(details.address)}</textarea><div class="fe" id="e-address"></div><label for="c-note">A note for Amudha (optional)</label><textarea id="c-note" rows="2">${esc(details.note)}</textarea><button class="btn wide" type="submit">Continue to review</button></form><button class="link" onclick="renderCart()">Back to your collection</button>`);
+  view(steps(1)+`<h2>Your details</h2><p class="mut">So we can get in touch with further details.</p><form onsubmit="return toReview(event)" novalidate>${field('name','Full name','text',details.name,'name')}${field('email','Email address','email',details.email,'email')}${field('phone','Phone number','tel',details.phone,'tel')}${field('city','City and country','text',details.city,'address-level2')}<label for="c-note">A note for Amudha (optional)</label><textarea id="c-note" rows="3">${esc(details.note)}</textarea><button class="btn wide" type="submit">Continue to review</button></form><button class="link" onclick="renderCart()">Back to your interests</button>`);
 }
 function toReview(e){
   e.preventDefault();
@@ -356,28 +354,29 @@ function toReview(e){
   if(!details.name)bad.name='Please enter your full name.';
   if(!/^\S+@\S+\.\S+$/.test(details.email))bad.email='Please enter a valid email address.';
   if(details.phone.replace(/\D/g,'').length<7)bad.phone='Please enter a phone number we can reach you on.';
-  if(details.address.length<8)bad.address='Please enter your full delivery address.';
-  ['name','email','phone','address'].forEach(k=>{$('e-'+k).textContent=bad[k]||'';$('c-'+k).setAttribute('aria-invalid',bad[k]?'true':'false')});
+  if(details.city.length<2)bad.city='Please tell us your city and country.';
+  ['name','email','phone','city'].forEach(k=>{$('e-'+k).textContent=bad[k]||'';$('c-'+k).setAttribute('aria-invalid',bad[k]?'true':'false')});
   const first=Object.keys(bad)[0];
   if(first){$('c-'+first).focus();return false}
   renderReview();return false;
 }
 function renderReview(){
-  view(steps(2)+'<h2>Review your order</h2>'+cartItems.map(x=>`<div class="row"><span>${esc(x.title)}</span><b>${x.price}</b></div>`).join('')+`<div class="total"><span>Total</span><span>${inr(total())}</span></div><div class="paynote"><b>Deliver to</b><br>${esc(details.name)}<br>${esc(details.address).replace(/\n/g,'<br>')}<br>${esc(details.email)} · ${esc(details.phone)}${details.note?'<br><br><b>Your note for Amudha</b><br>'+esc(details.note):''}<br><button class="link" onclick="openCheckout()">Edit details</button></div><p class="mut sm">${payReady()?'Your order is sent first, then the secure payment page opens.':'Your order is sent to us, and we will email payment details to '+esc(details.email)+'.'}</p><p class="err" id="err" role="alert"></p><button class="btn wide" id="placeBtn" onclick="placeOrder()">${payReady()?'Place order and pay':'Place order'} · ${inr(total())}</button><button class="link" onclick="renderCart()">Back to your collection</button>`);
+  view(steps(2)+'<h2>Review your interest</h2>'+cartItems.map(x=>`<div class="row"><span>${esc(x.title)}</span><b>${x.price}</b></div>`).join('')+`<div class="paynote" style="margin-top:20px"><b>Your details</b><br>${esc(details.name)}<br>${esc(details.email)} · ${esc(details.phone)}<br>${esc(details.city)}${details.note?'<br><br><b>Your note for Amudha</b><br>'+esc(details.note):''}<br><button class="link" onclick="openCheckout()">Edit details</button></div><p class="mut sm">We will contact you at ${esc(details.email)} with further details. Sending this does not commit you to buy.</p><p class="err" id="err" role="alert"></p><button class="btn wide" id="placeBtn" onclick="sendInterest()">Send my interest</button><button class="link" onclick="renderCart()">Back to your interests</button>`);
 }
-function summary(){return 'New Second Bloom order: '+cartItems.map(x=>x.title).join('; ')+' - '+inr(total())+'. '+details.name+', '+details.phone+', '+details.email+', '+details.address}
-function placeOrder(){
-  const b=$('placeBtn');b.disabled=true;b.textContent='Sending your order…';$('err').textContent='';
-  const body=new URLSearchParams({'form-name':'order',name:details.name,email:details.email,phone:details.phone,address:details.address,note:details.note,items:cartItems.map(x=>x.title).join('; '),total:inr(total())});
-  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()})
-   .then(r=>{if(!r.ok)throw new Error('send');done()})
-   .catch(()=>{b.disabled=false;b.textContent='Try sending again';$('err').innerHTML='We could not send your order. Please check your connection and try again.'+(WHATSAPP?' Or <a target="_blank" rel="noopener" href="https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(summary())+'">send it on WhatsApp</a>.':'')});
+function summary(){return 'New Second Bloom interest: '+cartItems.map(x=>x.title).join('; ')+'. '+details.name+', '+details.phone+', '+details.email+', '+details.city+(details.note?'. Note: '+details.note:'')}
+function sendInterest(){
+  const b=$('placeBtn');$('err').textContent='';
+  if(!SCRIPT_URL){location.href='mailto:'+OWNER_EMAIL+'?subject='+encodeURIComponent('Interest in '+cartItems.map(x=>x.title).join(', '))+'&body='+encodeURIComponent(summary());$('err').textContent='Your email app has opened with your interest ready. Please press send there.';return}
+  b.disabled=true;b.textContent='Sending…';
+  const payload={name:details.name,email:details.email,phone:details.phone,city:details.city,note:details.note,items:cartItems.map(x=>({title:x.title,price:x.price,type:x.type}))};
+  fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
+   .then(()=>done())
+   .catch(()=>{b.disabled=false;b.textContent='Try sending again';$('err').innerHTML='We could not send your interest. Please check your connection and try again.'+(WHATSAPP?' Or <a target="_blank" rel="noopener" href="https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(summary())+'">send it on WhatsApp</a>.':'')});
 }
 function done(){
   const names=cartItems.map(x=>esc(x.title)).join(', '),first=esc(details.name.split(' ')[0]),mail=esc(details.email);
   cartItems=[];saveCart();
-  view(`<h2>Thank you, ${first}.</h2><p class="mut">Your order for <b>${names}</b> has been received.</p><p class="mut">${payReady()?'Taking you to secure payment now…':'We will email payment details to '+mail+' shortly.'}</p>${payReady()?`<a class="btn wide" href="${PAYMENT_URL}">Continue to payment</a>`:'<button class="btn wide" onclick="toCollection()">Back to the collection</button>'}`);
-  if(payReady())setTimeout(()=>{location.href=PAYMENT_URL},1500);
+  view(`<h2>Thank you, ${first}.</h2><p class="mut">Your interest in <b>${names}</b> has been received.</p><p class="mut">We will be in touch at ${mail} with further details.</p><button class="btn wide" onclick="toCollection()">Back to the collection</button>`);
 }
 
 /* colour themes */
