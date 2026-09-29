@@ -3,284 +3,290 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Second Bloom — Art That Carries a Story</title>
+<title>Second Bloom — It is never too late to bloom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=Hanken+Grotesk:wght@400;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#111113;--muted:#6f7075;--paper:#f7f7f8;--ivory:#fff;
-  --surface:#fbfbfc;--line:#e3e3e7;--soft:#f0f0f2;
-  --gold:#a1834d;--dark:#161618;
-  --shadow:0 28px 90px rgba(0,0,0,.10);
-}
+:root{--ink:#221a24;--plum:#5b2a4e;--plum-d:#431c3a;--deep:#2a1626;--gold:#e0a526;--chalk:#f6f2ee;--paper:#fffdfb;--muted:#5f5462;--line:#e4dbd6;
+--serif:"Fraunces",Georgia,"Times New Roman",serif;--sans:"Hanken Grotesk",-apple-system,"Segoe UI",Arial,sans-serif;--hand:"Caveat","Segoe Print",cursive}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  margin:0;background:var(--paper);color:var(--ink);
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased
-}
-a{color:inherit;text-decoration:none}button,input{font:inherit}
+body{margin:0;background:var(--chalk);color:var(--ink);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);font-weight:300;margin:0;letter-spacing:-.015em}
+.wrap{padding:0 6%}
 
-header{
-  position:sticky;top:0;z-index:30;height:72px;padding:0 5.2%;
-  display:flex;align-items:center;gap:30px;
-  background:rgba(255,255,255,.78);
-  backdrop-filter:saturate(180%) blur(22px);
-  -webkit-backdrop-filter:saturate(180%) blur(22px);
-  border-bottom:1px solid rgba(0,0,0,.055)
-}
-.brand{display:flex;align-items:center;gap:11px;min-width:235px}
-.mark{
-  width:35px;height:35px;border:1px solid #b99a63;border-radius:50%;
-  display:grid;place-items:center;color:#9b7b43;font:18px Georgia,serif;
-  background:linear-gradient(145deg,#fff,#faf8f2)
-}
-.brandname{font:600 18px -apple-system,BlinkMacSystemFont,"SF Pro Display",Arial,sans-serif;letter-spacing:2.8px}
-.sub{font-size:8px;letter-spacing:2.1px;color:#929298;text-transform:uppercase;margin-top:3px}
-.search{
-  margin-left:auto;width:310px;height:39px;border:1px solid #dedee3;
-  background:rgba(255,255,255,.8);padding:0 16px;border-radius:22px;
-  outline:none;color:var(--ink);font-size:12px
-}
-.search:focus{border-color:#b8b8bd;box-shadow:0 0 0 4px rgba(0,0,0,.035)}
-.nav{display:flex;gap:25px;font-size:12px;color:#444448}
-.nav a{transition:.2s}.nav a:hover{color:#000}
+header{position:sticky;top:0;z-index:30;height:76px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;background:rgba(246,242,238,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;font:500 22px var(--serif);letter-spacing:.01em}
+.brand svg{width:34px;height:34px}
+nav{display:flex;align-items:center;gap:30px;font-size:16px;font-weight:500}
+nav a:hover{color:var(--plum)}
+.cartlink{border:1.5px solid var(--plum);color:var(--plum);padding:9px 20px;border-radius:30px;background:none;cursor:pointer;font-weight:600}
+.cartlink:hover{background:var(--plum);color:#fff}
 
-.hero{
-  min-height:760px;padding:78px 6.5% 90px;
-  display:grid;grid-template-columns:.82fr 1.18fr;gap:70px;align-items:center;
-  background:
-    radial-gradient(circle at 76% 28%,rgba(255,255,255,.98) 0,rgba(255,255,255,.58) 24%,transparent 52%),
-    radial-gradient(circle at 15% 80%,rgba(230,230,235,.55),transparent 38%),
-    linear-gradient(180deg,#fafafd 0%,#f5f5f7 100%)
-}
-.hero-copy{max-width:590px}
-.eyebrow{
-  font-size:10px;text-transform:uppercase;letter-spacing:3px;
-  color:#8a8b90;font-weight:600
-}
-h1{
-  font:500 clamp(58px,6.3vw,96px)/.93 Georgia,"Times New Roman",serif;
-  letter-spacing:-4px;margin:18px 0 27px
-}
-.hero p{font:19px/1.72 Georgia,"Times New Roman",serif;color:#6d6e74;max-width:550px}
-.cta{
-  display:inline-flex;margin-top:22px;background:#111113;color:#fff;
-  padding:15px 23px;border-radius:26px;font-size:12px;font-weight:600;
-  box-shadow:0 10px 28px rgba(0,0,0,.13);transition:.22s
-}
-.cta:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(0,0,0,.17)}
-.hero-note{margin-top:18px;font-size:10px;color:#8b8c91;letter-spacing:.3px}
-.creator-chip{
-  display:inline-flex;align-items:center;gap:8px;margin-top:22px;
-  padding:8px 12px;border:1px solid #dfdfe3;background:rgba(255,255,255,.72);
-  border-radius:20px;font-size:10px;color:#55565b;
-  box-shadow:0 8px 25px rgba(0,0,0,.04)
-}
-.creator-dot{width:7px;height:7px;border-radius:50%;background:#a1834d}
+.hero{padding:70px 6% 90px;display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center;min-height:calc(100vh - 76px)}
+.hero h1{font-size:clamp(48px,6.4vw,92px);line-height:1.02}
+.hero p{font-size:21px;line-height:1.7;color:var(--muted);max-width:33em;margin:28px 0 36px}
+.btn{display:inline-block;border:0;background:var(--plum);color:#fff;padding:17px 34px;border-radius:40px;font-size:17px;font-weight:600;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--plum-d)}
+.btn.wide{width:100%;margin-top:14px;text-align:center}
+.maker{display:flex;align-items:center;gap:12px;margin-top:34px;color:var(--muted);font-size:16px}
+.maker i{width:10px;height:10px;border-radius:50%;background:var(--gold);flex:none}
+.arch-wrap{position:relative;justify-self:center;width:min(480px,100%)}
+.arch-wrap:before{content:"";position:absolute;inset:-8% -12% -4%;background:radial-gradient(circle at 50% 40%,rgba(224,165,38,.28),transparent 62%);z-index:0}
+.arch{position:relative;z-index:1;background:var(--deep);border-radius:999px 999px 20px 20px;padding:64px 34px 30px;animation:bloom 1.6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes bloom{from{clip-path:circle(0% at 50% 100%)}to{clip-path:circle(150% at 50% 100%)}}
+.arch .mat{background:#fff;padding:14px;border-radius:4px}
+.arch img{display:block;width:100%;height:470px;object-fit:contain;background:#faf8f6}
+.plaque{margin-top:22px;text-align:center;color:#e9dde6;font-size:15px;line-height:1.5}
+.plaque b{font:500 19px var(--serif);display:block;color:#fff}
 
-.frame{
-  position:relative;background:#fff;padding:13px;border:1px solid #e1e1e5;
-  border-radius:22px;box-shadow:0 35px 100px rgba(0,0,0,.12)
-}
-.frame:before{display:none}
-.mat{background:#fafafa;padding:13px;border:1px solid #ededf0;border-radius:12px}
-.frame img{display:block;width:100%;height:100%;object-fit:cover;border-radius:7px}
-.hero-frame{height:635px;transform:rotate(.25deg);padding:15px}
-.hero-frame .mat{height:100%;padding:15px}
-.hero-frame img{object-fit:contain;background:#fff;object-position:center}
-.caption-plaque{
-  position:absolute;left:50%;bottom:-19px;transform:translateX(-50%);
-  background:rgba(255,255,255,.96);border:1px solid #dedee2;border-radius:22px;
-  padding:9px 17px;white-space:nowrap;font:11px -apple-system,BlinkMacSystemFont,Arial,sans-serif;
-  color:#505157;box-shadow:0 12px 28px rgba(0,0,0,.09)
-}
+.idea{background:var(--deep);color:#f3eaf0;padding:110px 6%}
+.idea h2{font-size:clamp(34px,4.6vw,64px);line-height:1.12;max-width:17em}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:50px;margin-top:70px}
+.trio div{border-top:1px solid rgba(255,255,255,.28);padding-top:22px}
+.trio h3{font:500 25px var(--serif);color:#fff;margin-bottom:8px}
+.trio p{margin:0;color:#d5c6d0;font-size:17px}
 
-.intro{text-align:center;max-width:900px;margin:auto;padding:115px 25px 90px;background:#fff}
-.intro h2{font:500 47px Georgia,serif;margin:14px 0 18px;letter-spacing:-1px}
-.intro p{font:18px/1.85 Georgia,serif;color:var(--muted);max-width:730px;margin:auto}
+.collection{padding:100px 6% 90px}
+.collection h2{font-size:clamp(34px,4vw,56px)}
+.lead{color:var(--muted);font-size:19px;max-width:34em;margin:14px 0 36px}
+.tools{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;margin-bottom:46px}
+.filters{display:flex;gap:10px;flex-wrap:wrap}
+.chip{border:1.5px solid #cdbfc8;background:transparent;padding:10px 20px;border-radius:30px;cursor:pointer;font-size:16px;font-weight:500}
+.chip:hover{border-color:var(--plum)}
+.chip.active{background:var(--plum);border-color:var(--plum);color:#fff}
+.search{width:300px;max-width:100%;padding:12px 20px;border:1.5px solid #cdbfc8;border-radius:30px;background:var(--paper);font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:56px 36px;align-items:start}
+.card{cursor:pointer;display:block}
+.card .mat{background:var(--paper);padding:14px;border:1px solid var(--line);box-shadow:0 1px 2px rgba(42,22,38,.06),0 18px 40px -18px rgba(42,22,38,.28);transition:transform .35s ease,box-shadow .35s ease}
+.card:hover .mat,.card:focus-visible .mat{transform:translateY(-6px);box-shadow:0 1px 2px rgba(42,22,38,.06),0 30px 50px -18px rgba(42,22,38,.34)}
+.card img{display:block;width:100%;aspect-ratio:4/5;object-fit:contain;background:#faf8f6}
+.card h3{font:500 24px/1.25 var(--serif);margin:22px 0 4px}
+.kind{font-size:15px;color:var(--plum);font-weight:600}
+.card p{margin:8px 0 12px;color:var(--muted);font-size:16px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.price{font:500 21px var(--serif)}.price small{font:400 14px var(--sans);color:var(--muted);margin-left:8px}
+.none{grid-column:1/-1;color:var(--muted);padding:30px 0}
 
-section{padding:35px 6.5% 100px}
-.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:30px}
-.section-head h2{font:500 40px Georgia,serif;margin:10px 0 0;letter-spacing:-.8px}
-.section-head p{font-size:11px;color:var(--muted);letter-spacing:.4px}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
-.chip{border:1px solid #dcdce1;background:#fff;padding:9px 15px;font-size:11px;border-radius:20px;cursor:pointer;color:#555;transition:.2s}
-.chip.active,.chip:hover{background:#111113;color:#fff;border-color:#111113}
+.letter{padding:20px 6% 120px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.paper{background:var(--paper);padding:60px 56px;box-shadow:0 30px 60px -25px rgba(42,22,38,.35);transform:rotate(-1deg);border-top:6px solid var(--gold)}
+.paper .to{font:500 34px var(--hand);color:var(--plum)}
+.paper p{font:500 27px/1.5 var(--hand);color:#3a2d3c;margin:14px 0}
+.sig{text-align:right;font:500 34px var(--hand)!important;color:var(--plum)!important}
+.letter h2{font-size:clamp(32px,3.6vw,48px);line-height:1.15;margin-bottom:20px}
+.letter .txt p{color:var(--muted);font-size:19px}
+.letter .mat{display:inline-block;background:var(--paper);padding:12px;border:1px solid var(--line);margin-top:18px;max-width:280px;transform:rotate(1.5deg);box-shadow:0 18px 40px -18px rgba(42,22,38,.35)}
+.letter .mat img{display:block;width:100%}
 
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:38px 28px}
-.card{cursor:pointer}
-.art-frame{background:#fff;padding:9px;border:1px solid #e1e1e5;border-radius:15px;box-shadow:0 12px 36px rgba(0,0,0,.055);transition:.3s}
-.art-frame .mat{padding:8px;overflow:hidden;position:relative;border-radius:9px}
-.art-frame img{display:block;width:100%;height:330px;object-fit:cover;transform:scale(1);transition:transform .5s cubic-bezier(.2,.7,.2,1);border-radius:5px}
-.card:hover .art-frame{transform:translateY(-5px);box-shadow:0 24px 55px rgba(0,0,0,.11)}
-.card:hover .art-frame img{transform:scale(1.045)}
-.art-frame .mat:after{content:"View detail";position:absolute;right:12px;bottom:12px;background:rgba(255,255,255,.95);color:#333;border:1px solid #dedee2;padding:7px 10px;border-radius:15px;font:10px/1 -apple-system,BlinkMacSystemFont,Arial,sans-serif;opacity:0;transform:translateY(5px);transition:.25s;pointer-events:none}
-.card:hover .art-frame .mat:after{opacity:1;transform:translateY(0)}
-.cardinfo{padding:16px 2px 24px}.title{font:19px Georgia,serif}.artist{font-size:11px;color:var(--muted);margin-top:6px}
-.type{font-size:9px;color:#917441;letter-spacing:1.2px;text-transform:uppercase;margin-top:9px}
-.price{font-size:13px;font-weight:600;margin-top:9px}.one-of-one{font-size:10px;color:#929298;margin-top:6px}
-.creator-story{margin:8px 0 10px;color:#67686d;font:12px/1.55 Georgia,serif}
+footer{background:var(--deep);color:#e9dde6;padding:64px 6%;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+footer b{font:500 26px var(--serif);display:block;color:#fff}
+footer div:last-child{display:flex;gap:28px;align-items:flex-start}
+footer a{cursor:pointer}footer a:hover{color:var(--gold)}
 
-.story{margin:25px 0;background:#171719;color:#f5f5f7;display:grid;grid-template-columns:1fr 1fr;border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
-.story-copy{padding:80px 70px}.story h2{font:500 45px Georgia,serif;margin:14px 0 20px;letter-spacing:-1px}.story p{font:17px/1.8 Georgia,serif;color:#b8b8bd}
-.story-image{min-height:480px;padding:45px;background:#f0f0f2;display:grid;place-items:center}.story-image .frame{max-width:360px;transform:rotate(-1.5deg)}
-.collection{background:#fff;padding-top:85px;padding-bottom:90px}
-.era-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.era{background:#f7f7f8;border:1px solid #e4e4e7;border-radius:18px;padding:30px 24px;min-height:150px;transition:.25s}
-.era:hover{transform:translateY(-3px);background:#fff;box-shadow:0 15px 35px rgba(0,0,0,.06)}
-.era b{font:27px Georgia,serif;display:block;margin-bottom:8px}.era span{font-size:11px;color:var(--muted);line-height:1.5}
-footer{background:#171719;color:#f5f5f7;padding:55px 6.5%;display:flex;justify-content:space-between;gap:30px}
-.footerbrand{font:600 20px -apple-system,BlinkMacSystemFont,Arial,sans-serif;letter-spacing:2px}.footerdesc{font-size:11px;color:#929297;margin-top:8px}.footerlinks{display:flex;gap:20px;font-size:11px;color:#b8b8bd}
+.modal,.cart{position:fixed;inset:0;z-index:60;display:none;background:rgba(34,20,32,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.modal.open{display:flex;align-items:center;justify-content:center;padding:22px}
+.cart.open{display:flex;justify-content:flex-end}
+.product{width:min(1080px,100%);max-height:92vh;overflow:auto;background:var(--paper);display:grid;grid-template-columns:1fr 1fr;border-radius:8px}
+.pvis{background:var(--deep);padding:44px;display:grid;place-items:center}
+.pvis .mat{background:#fff;padding:12px;width:100%;max-width:420px}
+.pvis img{display:block;width:100%;height:520px;object-fit:contain;background:#faf8f6}
+.pcopy{padding:50px 46px;position:relative}
+.pcopy h2{font-size:clamp(30px,3.2vw,44px);line-height:1.1;margin:8px 0 8px}
+.pcopy .by{color:var(--muted);font-size:16px}
+.pprice{font:500 30px var(--serif);margin:22px 0 14px}
+.meta{display:flex;gap:34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;margin:22px 0;font-size:16px}
+.meta span{display:block;color:var(--muted);font-size:14px}
+.pnote{background:#f6efe9;border-left:4px solid var(--gold);padding:16px 20px;font-size:16px;color:#4a3c4c;margin:0 0 6px}
+.x{position:absolute;top:16px;right:18px;width:46px;height:46px;border-radius:50%;border:0;background:var(--chalk);font-size:28px;line-height:1;cursor:pointer}
+.x:hover{background:var(--line)}
+.cartbox{width:min(480px,100%);height:100%;background:var(--paper);padding:40px 34px;overflow:auto;position:relative}
+.cartbox h2{font-size:34px;margin-bottom:22px}
+.item{display:flex;gap:16px;border-bottom:1px solid var(--line);padding:18px 0;align-items:flex-start}
+.item img{width:78px;height:96px;object-fit:cover;border:1px solid var(--line)}
+.item b{font:500 19px/1.3 var(--serif);display:block}
+.item small{color:var(--muted);font-size:15px}
+.link{background:none;border:0;padding:0;color:var(--plum);text-decoration:underline;cursor:pointer;font-size:15px;margin-top:6px}
+.total{display:flex;justify-content:space-between;font:500 22px var(--serif);padding:20px 0 4px}
+.step{font-size:15px;color:var(--muted)}
+label{display:block;font-size:15px;font-weight:600;margin-top:16px}
+.cartbox input{width:100%;padding:14px 16px;border:1.5px solid #cdbfc8;border-radius:8px;background:#fff;margin-top:6px;font-size:17px}
+.err{color:#a3262a;font-weight:600;min-height:1.4em;margin:12px 0 0}
+.paynote{background:#f6efe9;padding:16px 18px;border-radius:8px;font-size:16px;margin:18px 0;color:#4a3c4c}
 
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.58);z-index:60;display:none;align-items:center;justify-content:center;padding:22px;backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
-.modal.open{display:flex}
-.product{width:min(1100px,100%);max-height:92vh;overflow:auto;background:#fff;display:grid;grid-template-columns:1fr .9fr;border-radius:22px;box-shadow:0 40px 100px rgba(0,0,0,.3);overflow:hidden}
-.product-visual{padding:45px;background:#f1f1f3;display:grid;place-items:center}.product-visual .frame{width:100%;max-width:470px}
-.product-visual img{height:600px;object-fit:contain;background:#fafafa}
-.product-copy{padding:52px}.close{float:right;font-size:28px;line-height:1;cursor:pointer;color:#6e6e73}
-.product-copy h2{font:500 45px/1.05 Georgia,serif;margin:15px 0 10px}.product-copy .artistline{font-size:12px;color:var(--muted)}
-.product-price{font-size:22px;font-weight:600;margin:20px 0}.product-copy p{font:16px/1.75 Georgia,serif;color:#6d6d72}
-.meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;margin:25px 0;gap:20px}
-.meta span{font-size:9px;letter-spacing:1.7px;color:#929297}.meta b{font-size:12px}
-.btn{border:0;background:#111113;color:#fff;padding:15px 24px;border-radius:25px;cursor:pointer;font-size:12px;font-weight:600}.btn:hover{background:#000}
-.checkout-step{display:none}.checkout-step.active{display:block}
-.step-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#929297;margin-bottom:8px}
-.checkout-card{max-width:620px;margin:40px auto;background:#fff;border:1px solid #e1e1e5;border-radius:22px;padding:38px;box-shadow:0 25px 70px rgba(0,0,0,.08)}
-.checkout-card h2{font:500 36px Georgia,serif;margin:8px 0 22px}.checkout-card input{width:100%;padding:14px 15px;border:1px solid #dedee2;background:#fafafa;border-radius:10px;margin:6px 0;outline:none}
-.checkout-card input:focus{background:#fff;border-color:#b8b8bd;box-shadow:0 0 0 3px rgba(0,0,0,.035)}
-.payment-note{padding:15px;background:#f5f5f7;border-radius:12px;font-size:11px;color:#68696e;line-height:1.6;margin:18px 0}
-.back-link{display:inline-block;margin-top:14px;font-size:11px;color:#6e6e73;cursor:pointer}
-.cart{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:70;display:none;justify-content:flex-end;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.cart.open{display:flex}.cartbox{height:100%;width:min(470px,100%);background:#fff;padding:35px;overflow:auto;box-shadow:-20px 0 60px rgba(0,0,0,.12)}
-.cartbox h2{font:500 34px Georgia,serif}.cartitem{display:flex;gap:15px;border-bottom:1px solid var(--line);padding:18px 0}
-.cartthumb{width:75px;height:90px;object-fit:cover;border:1px solid #ddd;border-radius:7px}.cartbox input{width:100%;padding:13px;border:1px solid #dedee2;background:#fafafa;border-radius:8px;margin:6px 0;outline:none}
-.empty{color:var(--muted);line-height:1.6}
-
-@media(max-width:1000px){
-  .grid{grid-template-columns:repeat(3,1fr)}.hero{grid-template-columns:1fr}.hero-frame{height:520px}.story{grid-template-columns:1fr}.era-row{grid-template-columns:repeat(2,1fr)}.search{display:none}
-}
-@media(max-width:680px){
-  header{height:68px;padding:0 18px}.brand{min-width:auto}.brandname{font-size:16px}.nav{gap:12px;font-size:11px}
-  .hero{padding:55px 20px}.hero-frame{height:430px}.grid{grid-template-columns:1fr 1fr;gap:20px}.art-frame img{height:250px}
-  .section-head{display:block}.section-head p{margin-top:10px}.story-copy{padding:48px 30px}.story-image{padding:28px}
-  .product{grid-template-columns:1fr}.product-visual{padding:25px}.product-visual img{height:420px}.product-copy{padding:30px}
-  .era-row{grid-template-columns:1fr}.footerlinks{display:none}.checkout-card{margin:20px 0;padding:25px}
-}
+@media(max-width:980px){.hero{grid-template-columns:1fr;gap:56px;min-height:0}.grid{grid-template-columns:repeat(2,1fr)}.letter{grid-template-columns:1fr;gap:50px}.trio{grid-template-columns:1fr;gap:34px}.product{grid-template-columns:1fr}nav a.hide{display:none}}
+@media(max-width:600px){body{font-size:16px}header{padding:0 18px}nav{gap:16px}.brand{font-size:19px}.hero{padding:44px 20px 70px}.hero p{font-size:19px}.grid{grid-template-columns:1fr}.paper{padding:38px 28px}.arch{padding:50px 22px 24px}.arch img{height:390px}.pvis{padding:26px}.pvis img{height:380px}.pcopy{padding:34px 24px}.idea,.collection{padding-left:20px;padding-right:20px}.letter,footer{padding-left:20px;padding-right:20px}}
+@media(prefers-reduced-motion:reduce){.arch{animation:none}html{scroll-behavior:auto}.card .mat{transition:none}}
 </style>
 </head>
 <body>
 <header>
-  <a class="brand" href="#top"><div class="mark">✦</div><div><div class="brandname">SECOND BLOOM</div><div class="sub">Art · Stories · Expression</div></div></a>
-  <input class="search" id="search" placeholder="Search artworks, themes or stories" oninput="filterCards()">
-  <nav class="nav"><a href="#collection">Collection</a><a href="#story">Our story</a><a href="#cart" onclick="openCart();return false">Cart (<span id="count">0</span>)</a></nav>
+  <a class="brand" href="#top" aria-label="Second Bloom home">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><g fill="#5b2a4e"><ellipse cx="20" cy="9" rx="5.5" ry="8"/><ellipse cx="20" cy="9" rx="5.5" ry="8" transform="rotate(72 20 20)"/><ellipse cx="20" cy="9" rx="5.5" ry="8" transform="rotate(144 20 20)"/><ellipse cx="20" cy="9" rx="5.5" ry="8" transform="rotate(216 20 20)"/><ellipse cx="20" cy="9" rx="5.5" ry="8" transform="rotate(288 20 20)"/></g><circle cx="20" cy="20" r="4.5" fill="#e0a526"/></svg>
+    Second Bloom
+  </a>
+  <nav>
+    <a class="hide" href="#collection">Collection</a>
+    <a class="hide" href="#story">Her story</a>
+    <button class="cartlink" onclick="openCart()">Your collection (<span id="count">0</span>)</button>
+  </nav>
 </header>
 
 <main id="top">
 <section class="hero">
   <div>
-    <div class="eyebrow">A new home for meaningful art</div>
-    <h1>Art that<br>carries a<br><i>story.</i></h1>
-    <p>Original drawings, paintings and illustrated pieces created to hold a feeling, a memory or a moment — made to be lived with, not simply looked at.</p>
-    <a class="cta" href="#collection">Explore the collection</a>
-    <div class="hero-note">Original work · Artist-made · One of a kind</div><div class="creator-chip"><span class="creator-dot"></span><b>Amudha Premnath</b> · 64 years · Creator of this collection</div>
+    <h1>It is never too late to bloom.</h1>
+    <p>Original art from makers who never stopped creating. Every piece carries a lifetime of patience, and every purchase helps its maker stand on their own.</p>
+    <a class="btn" href="#collection">See the collection</a>
+    <div class="maker"><i></i>First collection by Amudha Premnath, age 64</div>
   </div>
-  <div class="frame hero-frame"><div class="mat"><img src="second-bloom-assets/krishna-flute.jpeg" alt="Krishna — The Flute Player by Amudha Premnath"></div><div class="caption-plaque">Krishna — Graphite & Pencil · Original Artwork</div></div>
+  <div class="arch-wrap">
+    <div class="arch">
+      <div class="mat"><img src="second-bloom-assets/krishna-flute.jpeg" alt="Krishna, the flute player, drawn in graphite by Amudha Premnath"></div>
+      <div class="plaque"><b>Krishna — The Flute Player</b>Graphite and pencil · Original</div>
+    </div>
+  </div>
 </section>
 
-<div class="intro">
-  <div class="eyebrow">The Second Bloom idea</div>
-  <h2>Some art deserves a second life.</h2>
-  <p>We bring together expressive artworks that feel personal — a temple remembered, a quiet mountain, a father celebrated, a flower drawn from the heart. Each piece can become part of someone else's story.</p>
-</div>
+<section class="idea">
+  <h2>Sixty is not where a story ends. It is where the best chapters are written in your own hand.</h2>
+  <div class="trio">
+    <div><h3>Made by hand</h3><p>Every drawing and painting is created by the artist, one patient line at a time.</p></div>
+    <div><h3>Sold with its story</h3><p>You receive the artwork and the memory, faith or feeling behind it.</p></div>
+    <div><h3>Earned, not given</h3><p>Buying here pays a maker directly for skill they have practised for decades.</p></div>
+  </div>
+</section>
 
-<section id="collection">
-  <div class="section-head"><div><div class="eyebrow">Curated collection</div><h2>Works worth keeping</h2></div><p>Original pieces · Carefully presented · Ready for a new home</p></div>
-  <div class="filters"><button class="chip active" onclick="setFilter('all',this)">All art</button><button class="chip" onclick="setFilter('drawing',this)">Ink & pencil</button><button class="chip" onclick="setFilter('colour',this)">Colour & watercolour</button><button class="chip" onclick="setFilter('spiritual',this)">Spiritual</button><button class="chip" onclick="setFilter('story',this)">Art with words</button><button class="chip" onclick="setFilter('gift',this)">Meaningful gifts</button></div>
+<section class="collection" id="collection">
+  <h2>Find something that speaks to you</h2>
+  <p class="lead">Every artwork is original and one of one. Choose by feeling, or search for a place, a saint, a flower.</p>
+  <div class="tools">
+    <div class="filters" id="filters">
+      <button class="chip active" data-f="all" onclick="setFilter('all')">All art</button>
+      <button class="chip" data-f="Peace" onclick="setFilter('Peace')">Peace</button>
+      <button class="chip" data-f="Devotion" onclick="setFilter('Devotion')">Devotion</button>
+      <button class="chip" data-f="Love" onclick="setFilter('Love')">Love</button>
+      <button class="chip" data-f="Expression" onclick="setFilter('Expression')">Expression</button>
+      <button class="chip" data-f="drawing" onclick="setFilter('drawing')">Ink and pencil</button>
+      <button class="chip" data-f="colour" onclick="setFilter('colour')">Colour</button>
+    </div>
+    <input class="search" id="search" type="search" placeholder="Search artworks" aria-label="Search artworks" oninput="renderProducts()">
+  </div>
   <div class="grid" id="grid"></div>
 </section>
 
-<section id="story">
- <div class="story">
-  <div class="story-copy"><div class="eyebrow" style="color:#bda36d">The creator behind the collection</div><h2>64 years. A lifetime of stories. Still creating.</h2><p>Amudha Premnath brings patience, memory and emotion to every line she draws. These are not simply artworks; they are moments she chose to put on paper.</p><p>Second Bloom gives that talent a new audience — and gives each piece a chance to become part of someone else's story.</p></div><div class="story-image"><div class="frame"><div class="mat"><img src="second-bloom-assets/temple-kedarnath.jpeg" alt="Hand drawn temple artwork"></div></div></div>
- </div>
-</section>
-
-<section class="collection">
- <div class="section-head"><div><div class="eyebrow">Choose by feeling</div><h2>Find something that speaks to you</h2></div></div>
- <div class="era-row"><div class="era"><b>Peace</b><span>Quiet landscapes, spiritual sketches and art made for slower moments.</span></div><div class="era"><b>Devotion</b><span>Krishna, Hanuman, Buddha and sacred places drawn with care.</span></div><div class="era"><b>Love</b><span>Father's Day, Women's Day and pieces that turn emotion into a keepsake.</span></div><div class="era"><b>Expression</b><span>Colour, nature, architecture and words brought together in one frame.</span></div></div>
+<section class="letter" id="story">
+  <div class="paper">
+    <div class="to">Dear friend,</div>
+    <p>I picked up my pencil again because some things are easier to draw than to say. Every line in these pictures is a small act of patience.</p>
+    <p>When one of them hangs in your home, I hope it keeps you company the way it kept me.</p>
+    <p class="sig">Amudha</p>
+  </div>
+  <div class="txt">
+    <h2>64 years of stories. Still creating.</h2>
+    <p>Amudha Premnath brings memory and emotion to every line she draws. These are not only artworks; they are moments she chose to put on paper.</p>
+    <p>Second Bloom gives that talent a new audience, and gives every piece a chance to become part of someone else's story.</p>
+    <div class="mat"><img src="second-bloom-assets/temple-kedarnath.jpeg" alt="Hand drawn temple in the hills by Amudha Premnath"></div>
+  </div>
 </section>
 </main>
 
-<footer><div><div class="footerbrand">SECOND BLOOM</div><div class="footerdesc">Blooming through art, one story at a time.</div></div><div class="footerlinks"><a href="#collection">Collection</a><a href="#story">Our Story</a><a href="#cart" onclick="openCart();return false">Cart</a></div></footer>
+<footer>
+  <div><b>Second Bloom</b>Blooming through art, one story at a time.</div>
+  <div><a href="#collection">Collection</a><a href="#story">Her story</a><a onclick="openCart()" tabindex="0" role="button">Your collection</a></div>
+</footer>
 
-<div class="modal" id="modal"><div class="product"><div class="product-visual"><div class="frame"><div class="mat"><img id="pImg" src="" alt=""></div></div></div><div class="product-copy"><span class="close" onclick="closeProduct()">×</span><div class="eyebrow" id="pType"></div><h2 id="pTitle"></h2><div class="artistline" id="pArtist"></div><div class="product-price" id="pPrice"></div><p id="pDesc"></p><div class="meta"><div><span>MEDIUM</span><br><b id="pMedium"></b></div><div><span>FORMAT</span><br><b>Original artwork</b></div><div><span>DETAIL</span><br><b>Artist-made</b></div><div><span>EDITION</span><br><b>One of one</b></div></div><p><b>A piece with a story</b><br>Created by Amudha Premnath at 64, this piece is more than an artwork — it is a small part of her story, patience and continuing creative journey.</p><button class="btn" onclick="addToCart()">Add to Cart</button></div></div></div>
+<div class="modal" id="modal" onclick="if(event.target===this)closeProduct()">
+  <div class="product" role="dialog" aria-modal="true" aria-labelledby="pTitle">
+    <div class="pvis"><div class="mat"><img id="pImg" src="" alt=""></div></div>
+    <div class="pcopy">
+      <button class="x" onclick="closeProduct()" aria-label="Close">×</button>
+      <div class="kind" id="pType"></div>
+      <h2 id="pTitle"></h2>
+      <div class="by" id="pArtist"></div>
+      <div class="pprice" id="pPrice"></div>
+      <p id="pDesc"></p>
+      <div class="meta"><div><span>Medium</span><b id="pMedium"></b></div><div><span>Edition</span><b>Original, one of one</b></div></div>
+      <p class="pnote">Created by Amudha Premnath at 64. This piece is a small part of her story and her creative journey, and it can become part of yours.</p>
+      <button class="btn wide" id="addBtn" onclick="addToCart()">Bring this home</button>
+    </div>
+  </div>
+</div>
 
-<div class="cart" id="cart"><div class="cartbox"><span class="close" onclick="closeCart()">×</span><h2>Your collection</h2><div id="cartBody"></div></div></div>
+<div class="cart" id="cart" onclick="if(event.target===this)closeCart()">
+  <div class="cartbox" role="dialog" aria-modal="true" aria-label="Your collection">
+    <button class="x" onclick="closeCart()" aria-label="Close">×</button>
+    <div id="cartBody"></div>
+  </div>
+</div>
 
 <script>
+const A='Amudha Premnath · 64 years';
+const a=(title,type,medium,n,img,tags,story)=>({title,type,medium,n,price:'₹'+n.toLocaleString('en-IN'),img:'second-bloom-assets/'+img+'.jpeg',artist:A,tags,story});
 const products=[
- {title:'Krishna — The Flute Player',artist:'Amudha Premnath · 64 years',type:'Spiritual',medium:'Graphite & pencil',price:'₹3,500',img:'second-bloom-assets/krishna-flute.jpeg',tags:['drawing','spiritual'],story:'A quiet expression of devotion — drawn with patience, detail and a lifelong connection to Krishna.'},
- {title:'The Temple in the Silent Hills',artist:'Amudha Premnath · 64 years',type:'Heritage Drawing',medium:'Ink on paper',price:'₹3,800',img:'second-bloom-assets/temple-kedarnath.jpeg',tags:['drawing','spiritual','story'],story:'A temple remembered through the stillness of the mountains — a piece that carries faith, memory and a sense of home.'},
- {title:'A Monument of Memory',artist:'Amudha Premnath · 64 years',type:'Architecture',medium:'Ink sketch',price:'₹3,500',img:'second-bloom-assets/taj-sketch.jpeg',tags:['drawing','story'],story:'More than an architectural sketch, this is a study of patience and beauty — one careful line at a time.'},
- {title:'Beauty in Every Stroke',artist:'Amudha Premnath · 64 years',type:'Nature & Expression',medium:'Mixed media',price:'₹4,200',img:'second-bloom-assets/peacock.jpeg',tags:['colour','story'],story:'A celebration of colour and creativity — proof that expression can keep becoming richer at every age.'},
- {title:'Where the Road Becomes Quiet',artist:'Amudha Premnath · 64 years',type:'Mindful Landscape',medium:'Ink on paper',price:'₹3,900',img:'second-bloom-assets/mountain-road.jpeg',tags:['drawing','story'],story:'A winding road through the mountains, inspired by the quiet moments when we slow down and reconnect with ourselves.'},
- {title:'Life Has Texture',artist:'Amudha Premnath · 64 years',type:'Words & Illustration',medium:'Ink illustration',price:'₹3,200',img:'second-bloom-assets/life-texture.jpeg',tags:['drawing','story'],story:'A gentle reminder that every chapter — easy or difficult — adds texture and meaning to a life well lived.'},
- {title:'I Am Becoming',artist:'Amudha Premnath · 64 years',type:'Botanical Expression',medium:'Watercolour',price:'₹4,500',img:'second-bloom-assets/blooming-flowers.jpeg',tags:['colour','story'],story:'A bright expression of renewal: choosing peace, joy and growth, and continuing to bloom in your own colours.'},
- {title:'Quiet Architecture',artist:'Amudha Premnath · 64 years',type:'Travel Sketch',medium:'Ink on paper',price:'₹3,600',img:'second-bloom-assets/japanese-temple.jpeg',tags:['drawing'],story:'A moment of travel translated into delicate lines — capturing the calm beauty of a place worth remembering.'},
- {title:'For Dad, With Love',artist:'Amudha Premnath · 64 years',type:'Meaningful Gift',medium:'Ink & pencil',price:'₹3,400',img:'second-bloom-assets/dad-hero.jpeg',tags:['drawing','gift','story'],story:'Created as a heartfelt tribute to a father — a simple drawing carrying gratitude, love and memories that stay.'},
- {title:'Two Koi, One Flow',artist:'Amudha Premnath · 64 years',type:'Watercolour',medium:'Watercolour on paper',price:'₹4,800',img:'second-bloom-assets/koi-watercolor.jpeg',tags:['colour'],story:'Two koi moving together in colour and flow — a reflection on companionship, balance and the beauty of moving through life together.'},
- {title:'Stillness',artist:'Amudha Premnath · 64 years',type:'Spiritual Sketch',medium:'Graphite & ink',price:'₹3,300',img:'second-bloom-assets/buddha-sketch.jpeg',tags:['drawing','spiritual'],story:'A study in stillness — created to evoke the quiet strength that comes when the mind finally slows down.'},
- {title:'Soul Cafe',artist:'Amudha Premnath · 64 years',type:'Illustrated Story',medium:'Ink on textured paper',price:'₹3,700',img:'second-bloom-assets/soul-cafe.jpeg',tags:['drawing','story'],story:'An imagined little place for the soul to pause — where warmth, reflection and a new version of yourself can meet.'},
- {title:'Where the World Grows Quiet',artist:'Amudha Premnath · 64 years',type:'Mountain Story',medium:'Ink illustration',price:'₹3,800',img:'second-bloom-assets/mountain-soul.jpeg',tags:['drawing','story'],story:'In the silence of the mountains, the drawing invites us to remember who we have always been.'},
- {title:'Hanuman Jayanti — Strength & Devotion',artist:'Amudha Premnath · 64 years',type:'Spiritual Art',medium:'Illustrated ink work',price:'₹4,000',img:'second-bloom-assets/hanuman-jayanti.jpeg',tags:['spiritual','story'],story:'A devotional work celebrating strength, courage, wisdom and service — values that remain meaningful through every stage of life.'},
- {title:'Bloom in Your Own Colours',artist:'Amudha Premnath · 64 years',type:'Celebration Art',medium:'Graphite & colour',price:'₹3,900',img:'second-bloom-assets/womens-day.jpeg',tags:['drawing','gift','story'],story:'A celebration of becoming — a reminder that there is always room to grow, create and bloom in your own colours.'}
+ a('Krishna — The Flute Player','Spiritual','Graphite & pencil',3500,'krishna-flute',['drawing'],'A quiet expression of devotion — drawn with patience, detail and a lifelong connection to Krishna.'),
+ a('The Temple in the Silent Hills','Heritage Drawing','Ink on paper',3800,'temple-kedarnath',['drawing'],'A temple remembered through the stillness of the mountains — a piece that carries faith, memory and a sense of home.'),
+ a('A Monument of Memory','Architecture','Ink sketch',3500,'taj-sketch',['drawing'],'More than an architectural sketch, this is a study of patience and beauty — one careful line at a time.'),
+ a('Beauty in Every Stroke','Nature & Expression','Mixed media',4200,'peacock',['colour'],'A celebration of colour and creativity — proof that expression can keep becoming richer at every age.'),
+ a('Where the Road Becomes Quiet','Mindful Landscape','Ink on paper',3900,'mountain-road',['drawing'],'A winding road through the mountains, inspired by the quiet moments when we slow down and reconnect with ourselves.'),
+ a('Life Has Texture','Words & Illustration','Ink illustration',3200,'life-texture',['drawing'],'A gentle reminder that every chapter — easy or difficult — adds texture and meaning to a life well lived.'),
+ a('I Am Becoming','Botanical Expression','Watercolour',4500,'blooming-flowers',['colour'],'A bright expression of renewal: choosing peace, joy and growth, and continuing to bloom in your own colours.'),
+ a('Quiet Architecture','Travel Sketch','Ink on paper',3600,'japanese-temple',['drawing'],'A moment of travel translated into delicate lines — capturing the calm beauty of a place worth remembering.'),
+ a('For Dad, With Love','Meaningful Gift','Ink & pencil',3400,'dad-hero',['drawing'],'Created as a heartfelt tribute to a father — a simple drawing carrying gratitude, love and memories that stay.'),
+ a('Two Koi, One Flow','Watercolour','Watercolour on paper',4800,'koi-watercolor',['colour'],'Two koi moving together in colour and flow — a reflection on companionship, balance and the beauty of moving through life together.'),
+ a('Stillness','Spiritual Sketch','Graphite & ink',3300,'buddha-sketch',['drawing'],'A study in stillness — created to evoke the quiet strength that comes when the mind finally slows down.'),
+ a('Soul Cafe','Illustrated Story','Ink on textured paper',3700,'soul-cafe',['drawing'],'An imagined little place for the soul to pause — where warmth, reflection and a new version of yourself can meet.'),
+ a('Where the World Grows Quiet','Mountain Story','Ink illustration',3800,'mountain-soul',['drawing'],'In the silence of the mountains, the drawing invites us to remember who we have always been.'),
+ a('Hanuman Jayanti — Strength & Devotion','Spiritual Art','Illustrated ink work',4000,'hanuman-jayanti',['drawing'],'A devotional work celebrating strength, courage, wisdom and service — values that remain meaningful through every stage of life.'),
+ a('Bloom in Your Own Colours','Celebration Art','Graphite & colour',3900,'womens-day',['drawing','colour'],'A celebration of becoming — a reminder that there is always room to grow, create and bloom in your own colours.')
 ];
+const F={Peace:[1,4,7,10,12],Devotion:[0,1,10,13],Love:[8,9,14],Expression:[3,5,6,11]};
 let selected=null,cartItems=[],activeFilter='all';
-function renderProducts(){const q=document.getElementById('search').value.toLowerCase();const grid=document.getElementById('grid');grid.innerHTML=products.filter(p=>(activeFilter==='all'||p.tags.includes(activeFilter))&&(`${p.title} ${p.type} ${p.medium} ${p.artist} ${p.story}`.toLowerCase().includes(q))).map((p,i)=>`<div class="card" onclick="showProduct(${i})"><div class="art-frame"><div class="mat"><img src="${p.img}" alt="${p.title} by ${p.artist}"></div></div><div class="cardinfo"><div class="title">${p.title}</div><div class="artist">${p.artist} · Age 64</div><div class="creator-story">${p.story}</div><div class="type">${p.type}</div><div class="storyline">${p.story}</div><div class="price">${p.price}</div><div class="one-of-one">Original · One of one</div></div></div>`).join('')||'<div style="grid-column:1/-1;padding:40px 0;color:#6e6e73">No artworks found.</div>'}
-function filterCards(){renderProducts()}function setFilter(f,el){activeFilter=f;document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));el.classList.add('active');renderProducts()}
-function showProduct(i){selected=products[i];document.getElementById('pImg').src=selected.img;document.getElementById('pImg').alt=selected.title;document.getElementById('pTitle').textContent=selected.title;document.getElementById('pArtist').textContent=selected.artist;document.getElementById('pType').textContent=selected.type;document.getElementById('pPrice').textContent=selected.price;document.getElementById('pMedium').textContent=selected.medium;document.getElementById('pDesc').textContent=selected.story;document.getElementById('modal').classList.add('open')}
-function closeProduct(){document.getElementById('modal').classList.remove('open')}
-function addToCart(){cartItems=[selected];document.getElementById('count').textContent=cartItems.length;closeProduct();openCart()}
-function openCart(){document.getElementById('cart').classList.add('open');renderCart()}
-function closeCart(){document.getElementById('cart').classList.remove('open')}
+const $=id=>document.getElementById(id);
+const inr=n=>'₹'+n.toLocaleString('en-IN');
+
+function renderProducts(){
+  const q=$('search').value.toLowerCase().trim();
+  const list=products.map((p,i)=>[p,i]).filter(([p,i])=>(activeFilter==='all'||(F[activeFilter]?F[activeFilter].includes(i):p.tags.includes(activeFilter)))&&`${p.title} ${p.type} ${p.medium} ${p.story}`.toLowerCase().includes(q));
+  $('grid').innerHTML=list.map(([p,i])=>`<article class="card" tabindex="0" role="button" aria-label="View ${p.title}" onclick="showProduct(${i})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showProduct(${i})}"><div class="mat"><img src="${p.img}" alt="${p.title} by Amudha Premnath" loading="lazy"></div><h3>${p.title}</h3><div class="kind">${p.type}</div><p>${p.story}</p><div class="price">${p.price}<small>Original, one of one</small></div></article>`).join('')||'<div class="none">No artworks match that yet. Try a different word, or choose All art.</div>';
+}
+function setFilter(f){activeFilter=f;document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('active',x.dataset.f===f));renderProducts()}
+function showProduct(i){
+  selected=products[i];
+  $('pImg').src=selected.img;$('pImg').alt=selected.title;
+  $('pTitle').textContent=selected.title;$('pArtist').textContent='By '+selected.artist;
+  $('pType').textContent=selected.type;$('pPrice').textContent=selected.price;
+  $('pMedium').textContent=selected.medium;$('pDesc').textContent=selected.story;
+  $('addBtn').textContent=cartItems.includes(selected)?'View your collection':'Bring this home';
+  $('modal').classList.add('open');$('modal').querySelector('.x').focus();
+}
+function closeProduct(){$('modal').classList.remove('open')}
+function addToCart(){if(!cartItems.includes(selected))cartItems.push(selected);$('count').textContent=cartItems.length;closeProduct();openCart()}
+function openCart(){$('cart').classList.add('open');renderCart()}
+function closeCart(){$('cart').classList.remove('open')}
+function removeItem(i){cartItems.splice(i,1);$('count').textContent=cartItems.length;renderCart()}
 const PAYMENT_URL='PASTE_PAYMENT_LINK_HERE';
+const total=()=>cartItems.reduce((s,x)=>s+x.n,0);
 
 function renderCart(){
-  const body=document.getElementById('cartBody');
-  if(!cartItems.length){
-    body.innerHTML='<p class="empty">Your collection is empty. Choose an artwork that means something to you.</p>';
-    return;
-  }
-  const x=cartItems[0];
-  body.innerHTML=`<div class="cartitem"><img class="cartthumb" src="${x.img}" alt="${x.title}"><div><b>${x.title}</b><div style="color:#776d61;margin:6px 0;font-size:11px">${x.type} · ${x.medium}</div><div style="font-size:11px;color:#777">Created by Amudha Premnath · 64</div><b style="display:block;margin-top:7px">${x.price}</b></div></div><p style="font:14px/1.6 Georgia,serif;color:#6e6e73">${x.story}</p><button class="btn" style="width:100%;margin-top:10px" onclick="openCheckout()">Continue to checkout</button>`;
+  const b=$('cartBody');
+  if(!cartItems.length){b.innerHTML='<h2>Your collection</h2><p style="color:var(--muted)">It is empty for now. Choose an artwork that means something to you.</p><button class="btn wide" onclick="closeCart();location.hash=\'collection\'">See the collection</button>';return}
+  b.innerHTML='<h2>Your collection</h2>'+cartItems.map((x,i)=>`<div class="item"><img src="${x.img}" alt=""><div><b>${x.title}</b><small>${x.type} · ${x.medium}</small><br><small>By ${x.artist}</small><br><b style="font-size:18px;margin-top:4px">${x.price}</b><button class="link" onclick="removeItem(${i})">Remove</button></div></div>`).join('')+`<div class="total"><span>Total</span><span>${inr(total())}</span></div><p style="color:var(--muted);font-size:16px">Each piece is made by hand and will be sent with its story.</p><button class="btn wide" onclick="openCheckout()">Continue to checkout</button>`;
 }
-
 function openCheckout(){
-  const body=document.getElementById('cartBody');
-  const x=cartItems[0];
-  body.innerHTML=`<div class="checkout-card" style="margin:0;padding:0;border:0;box-shadow:none"><div class="step-label">Step 1 of 2</div><h2>Almost yours.</h2><p style="font:15px/1.7 Georgia,serif;color:#6e6e73">A few details before we take you to secure payment.</p><input id="checkoutName" placeholder="Full name"><input id="checkoutEmail" type="email" placeholder="Email address"><input id="checkoutPhone" placeholder="Phone number"><input id="checkoutAddress" placeholder="Delivery address"><button class="btn" style="width:100%;margin-top:12px" onclick="continueToPayment()">Continue to payment</button><a class="back-link" onclick="renderCart()">← Back to your collection</a></div>`;
+  $('cartBody').innerHTML=`<div class="step">Step 1 of 2</div><h2>Almost yours.</h2><p style="color:var(--muted)">A few details before we take you to secure payment.</p><label for="cn">Full name</label><input id="cn" autocomplete="name"><label for="ce">Email address</label><input id="ce" type="email" autocomplete="email"><label for="cp">Phone number</label><input id="cp" type="tel" autocomplete="tel"><label for="ca">Delivery address</label><input id="ca" autocomplete="street-address"><p class="err" id="err" role="alert"></p><button class="btn wide" onclick="continueToPayment()">Continue to payment</button><button class="link" onclick="renderCart()">Back to your collection</button>`;
 }
-
 function continueToPayment(){
-  const name=document.getElementById('checkoutName').value.trim();
-  const email=document.getElementById('checkoutEmail').value.trim();
-  const phone=document.getElementById('checkoutPhone').value.trim();
-  const address=document.getElementById('checkoutAddress').value.trim();
-  if(!name||!email||!phone||!address){alert('Please complete your delivery details.');return;}
-  const body=document.getElementById('cartBody');
-  const x=cartItems[0];
-  body.innerHTML=`<div class="checkout-card" style="margin:0;padding:0;border:0;box-shadow:none"><div class="step-label">Step 2 of 2</div><h2>Secure payment</h2><p style="font:15px/1.7 Georgia,serif;color:#6e6e73">You are purchasing <b>${x.title}</b> by Amudha Premnath.</p><div class="payment-note">Your order details are ready. The secure payment page will open in a new window. Your payment provider will handle card, UPI and other supported payment methods.</div><button class="btn" style="width:100%" onclick="goToPayment()">Proceed to secure payment · ${x.price}</button><a class="back-link" onclick="openCheckout()">← Back to details</a></div>`;
+  if(!['cn','ce','cp','ca'].every(id=>$(id).value.trim())){$('err').textContent='Please fill in all four details so we can deliver your artwork.';return}
+  $('cartBody').innerHTML=`<div class="step">Step 2 of 2</div><h2>Secure payment</h2><p style="color:var(--muted)">You are bringing home ${cartItems.map(x=>'<b>'+x.title+'</b>').join(', ')} by Amudha Premnath.</p><div class="paynote">The secure payment page opens next. Your payment provider handles card, UPI and other supported methods.</div><p class="err" id="err" role="alert"></p><button class="btn wide" onclick="goToPayment()">Pay securely · ${inr(total())}</button><button class="link" onclick="openCheckout()">Back to details</button>`;
 }
-
 function goToPayment(){
-  if(PAYMENT_URL==='PASTE_PAYMENT_LINK_HERE'){
-    alert('Payment link is not connected yet. Send me your payment-link URL and I will connect it here.');
-    return;
-  }
+  if(PAYMENT_URL==='PASTE_PAYMENT_LINK_HERE'){$('err').textContent='Payment is not connected yet. Add your payment link to PAYMENT_URL in this file.';return}
   window.location.href=PAYMENT_URL;
 }
-
-function confirmOrder(){goToPayment();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeProduct();closeCart()}});
 renderProducts();
 </script>
 </body>
